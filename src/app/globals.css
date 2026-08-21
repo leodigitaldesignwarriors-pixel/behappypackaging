@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --color-yellow: #ffd400;
+  --color-yellow-dim: #e6bf00;
+  --color-black: #0a0a0a;
+  --color-ink: #14130f;
+  --color-off-white: #faf9f5;
+  --color-white: #ffffff;
+  --color-stone: #6b6a63;
+  --color-stone-light: #e7e5dc;
+
+  --font-heading: var(--font-outfit), "Outfit", sans-serif;
+  --font-body: var(--font-rubik), "Rubik", sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@theme inline {
+  --color-yellow: var(--color-yellow);
+  --color-yellow-dim: var(--color-yellow-dim);
+  --color-black: var(--color-black);
+  --color-ink: var(--color-ink);
+  --color-off-white: var(--color-off-white);
+  --color-white: var(--color-white);
+  --color-stone: var(--color-stone);
+  --color-stone-light: var(--color-stone-light);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+
+  --breakpoint-xs: 30rem;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-fast: marquee 16s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-off-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-black);
+}
+
+/* Custom cursor: hide native cursor only when our cursor is active (desktop, fine pointer) */
+.cursor-none-capable {
+  cursor: none;
+}
+
+@media (max-width: 767px), (hover: none), (pointer: coarse) {
+  .cursor-none-capable {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
