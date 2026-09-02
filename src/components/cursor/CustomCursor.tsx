@@ -65,9 +65,10 @@ export default function CustomCursor() {
       className="pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-200"
       style={{ opacity: visible ? 1 : 0 }}
     >
-      {/* Box cursor: mix-blend-difference makes it black over light content, white over dark */}
+      {/* Box cursor: solid black fill with a white outline — reads clearly over every
+          section background, including brand yellow, without relying on blend modes. */}
       <motion.div
-        className="fixed left-0 top-0 rounded-sm border-2 border-white bg-white mix-blend-difference"
+        className="fixed left-0 top-0 rounded-sm border-2 border-white bg-black shadow-[0_0_0_1px_rgba(0,0,0,0.15)]"
         style={{ x: boxX, y: boxY, translateX: "-50%", translateY: "-50%" }}
         animate={{
           width: isHovering ? 20 : 14,
@@ -77,7 +78,7 @@ export default function CustomCursor() {
         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* Solid label box on hover: normal blend mode for guaranteed text contrast */}
+      {/* Solid label box on hover */}
       <motion.div
         className="fixed left-0 top-0 flex items-center justify-center rounded-sm bg-black px-3"
         style={{ x: boxX, y: boxY, translateX: "-50%", translateY: "-50%" }}

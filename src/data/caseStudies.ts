@@ -7,9 +7,9 @@ export interface CaseStudy {
   headline: string;
   summary: string;
   results: string[];
-  quote: string;
-  quoteAuthor: string;
-  quoteRole: string;
+  quote?: string;
+  quoteAuthor?: string;
+  quoteRole?: string;
   galleryCount: number;
 }
 
@@ -48,19 +48,20 @@ export const caseStudies: CaseStudy[] = [
     galleryCount: 4,
   },
   {
-    id: "salt-and-bloom",
-    client: "Salt & Bloom",
-    industry: "Retail & E-commerce",
-    productSlug: "mailer-bags",
-    productName: "Mailer Bags",
-    headline: "A structural fix that cut damaged-in-transit returns",
+    id: "sliders-bakery",
+    client: "Slider's Bakery",
+    industry: "Food & Beverage",
+    productSlug: "folding-carton",
+    productName: "Folding Carton",
+    headline: "A printed carton built for a full cookie assortment",
     summary:
-      "Salt & Bloom's original mailer bag was under-sized for their product line, causing damage in transit. Our design team caught the issue during proofing and resized the dieline before it went to print.",
-    results: ["Structural issue caught before production", "Right-sized dieline reduced shipping cost per unit", "Damaged-in-transit returns dropped noticeably"],
-    quote:
-      "Their design team caught a structural issue on our mailer box before it went to print. That alone paid for the design service.",
-    quoteAuthor: "Elena Cruz",
-    quoteRole: "Ops Lead, Salt & Bloom",
-    galleryCount: 4,
+      "Slider's Bakery needed a food-safe folding carton sized for a mixed assortment box, with their branding printed edge-to-edge on the interior as part of the unboxing moment, not just the outside.",
+    results: [
+      "Food-safe folding carton, right-sized for an assorted cookie box",
+      "Full-color branding printed on the interior, not just the exterior",
+      "100-unit minimum, so a small bakery could order without an enterprise-scale commitment",
+    ],
+    // TODO: no customer quote provided for this case study yet — add one if the client shares feedback.
+    galleryCount: 2,
   },
 ];

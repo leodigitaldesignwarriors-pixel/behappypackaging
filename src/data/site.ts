@@ -26,11 +26,11 @@ export const siteConfig = {
         "A material and paper swatch sample for large-format boxes, since full printed prototypes aren't practical at that size.",
     },
   },
-  // TODO: client to provide real phone number and address
   contact: {
     email: "hello@behappypackaging.com",
-    phone: "",
-    address: "",
+    phone: "+1 (672) 273-0521",
+    address: "1500 N Grant St Ste C, Denver, CO 80203, United States",
+    // TODO: client to confirm a WhatsApp number, if used
     whatsapp: "",
   },
   social: {
@@ -111,6 +111,7 @@ export const siteConfig = {
       description:
         "Tell us what you're packaging, your quantities, and your timeline. We put together a clear, itemized quote within one business day.",
       timeframe: "Day 1",
+      image: "/images/process/brief-quote.jpg",
     },
     {
       step: 2,
@@ -118,6 +119,7 @@ export const siteConfig = {
       description:
         "Our design team builds a print-ready dieline and applies your branding, working with you through revisions until it's exactly right.",
       timeframe: "Days 2–4",
+      image: "/images/process/design-dieline.png",
     },
     {
       step: 3,
@@ -125,6 +127,7 @@ export const siteConfig = {
       description:
         "We produce a physical or digital proof so you can check structure, color, and finish before full production begins.",
       timeframe: "Days 4–6",
+      image: "/images/process/prototype-proof.jpg",
     },
     {
       step: 4,
@@ -132,6 +135,7 @@ export const siteConfig = {
       description:
         "Once you sign off, we move to full production and ship via DHL, FedEx, or USPS — landing on your dock in 8–12 business days total.",
       timeframe: "Days 6–12",
+      image: "/images/process/print-deliver.jpg",
     },
   ],
   faqs: [

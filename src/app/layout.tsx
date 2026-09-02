@@ -36,6 +36,14 @@ export const metadata: Metadata = {
       "Custom packaging manufacturing and design services. Low minimums, fast turnaround, shipped across the USA, UK & Canada.",
     siteName: siteConfig.name,
     type: "website",
+    images: [{ url: "/og-image.png", width: 1729, height: 910, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | Custom Packaging & Design`,
+    description:
+      "Custom packaging manufacturing and design services. Low minimums, fast turnaround, shipped across the USA, UK & Canada.",
+    images: ["/og-image.png"],
   },
 };
 

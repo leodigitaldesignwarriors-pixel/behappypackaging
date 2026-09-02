@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { EnvelopeSimple, Phone, MapPin } from "@phosphor-icons/react/dist/ssr";
 import Reveal from "@/components/animation/Reveal";
 import PageHero from "@/components/ui/PageHero";
-import PlaceholderMedia from "@/components/ui/PlaceholderMedia";
 import ContactForm from "@/components/forms/ContactForm";
 import { siteConfig } from "@/data/site";
 import { cacheBustedSrc } from "@/lib/cacheBust";
@@ -39,23 +38,33 @@ export default function ContactPage() {
                   <Phone size={20} className="mt-0.5 shrink-0 text-ink" />
                   <div>
                     <p className="text-sm font-semibold text-ink">Phone</p>
-                    {/* TODO: client to provide real phone number */}
-                    <p className="text-sm text-stone/60">To be added</p>
+                    <a
+                      href={`tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`}
+                      className="text-sm text-stone transition-colors hover:text-ink"
+                    >
+                      {siteConfig.contact.phone}
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin size={20} className="mt-0.5 shrink-0 text-ink" />
                   <div>
                     <p className="text-sm font-semibold text-ink">Address</p>
-                    {/* TODO: client to provide real business address */}
-                    <p className="text-sm text-stone/60">To be added</p>
+                    <p className="text-sm text-stone">{siteConfig.contact.address}</p>
                   </div>
                 </li>
               </ul>
             </div>
 
-            {/* TODO: replace with real embedded map once address is confirmed */}
-            <PlaceholderMedia label="Map" aspect="aspect-[4/3]" rounded="rounded-2xl" />
+            <div className="overflow-hidden rounded-2xl">
+              <iframe
+                title="Map showing our office location"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(siteConfig.contact.address)}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="aspect-[4/3] w-full border-0"
+              />
+            </div>
           </Reveal>
 
           <Reveal delay={0.05}>

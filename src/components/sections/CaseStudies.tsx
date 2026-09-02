@@ -37,7 +37,12 @@ export default function CaseStudies({ className = "bg-off-white py-20" }: CaseSt
             >
               <div className="relative overflow-hidden rounded-xl">
                 <div className="transition-transform duration-500 group-hover:scale-105">
-                  <PlaceholderMedia label={study.client} aspect="aspect-[4/3]" rounded="rounded-xl" />
+                  <PlaceholderMedia
+                    label={study.client}
+                    aspect="aspect-[4/3]"
+                    rounded="rounded-xl"
+                    src={`/images/case-studies/${study.id}/thumbnail.jpg`}
+                  />
                 </div>
                 <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink">
                   {study.industry}

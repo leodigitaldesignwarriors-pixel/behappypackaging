@@ -247,6 +247,7 @@ export default function HomePage() {
                   tone="dark"
                   variant="dot"
                   rounded="rounded-2xl"
+                  src={step.image ? cacheBustedSrc(step.image) : undefined}
                 />
               </div>
             ))}
@@ -276,7 +277,13 @@ export default function HomePage() {
       {/* Sustainability teaser */}
       <section className="relative overflow-hidden py-20">
         <Parallax speed={0.4} className="absolute -right-24 top-0 h-full w-1/2 opacity-40">
-          <PlaceholderMedia label="Sustainability illustration" aspect="aspect-square" variant="dot" className="h-full" />
+          <PlaceholderMedia
+            label="Sustainability illustration"
+            aspect="aspect-square"
+            variant="dot"
+            className="h-full"
+            src={cacheBustedSrc("/images/illustrations/sustainability.jpg")}
+          />
         </Parallax>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-xl">

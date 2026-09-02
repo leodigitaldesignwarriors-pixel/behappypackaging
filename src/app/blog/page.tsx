@@ -4,6 +4,7 @@ import Reveal from "@/components/animation/Reveal";
 import PageHero from "@/components/ui/PageHero";
 import PlaceholderMedia from "@/components/ui/PlaceholderMedia";
 import { blogPosts } from "@/data/blog";
+import { cacheBustedSrc } from "@/lib/cacheBust";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -27,7 +28,12 @@ export default function BlogIndexPage() {
         <Reveal stagger={0.08} className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} data-cursor="Read" className="group block">
-              <PlaceholderMedia label={post.title} aspect="aspect-[4/3]" rounded="rounded-2xl" />
+              <PlaceholderMedia
+                label={post.title}
+                aspect="aspect-[4/3]"
+                rounded="rounded-2xl"
+                src={cacheBustedSrc(`/images/blog/${post.slug}.jpg`)}
+              />
               <div className="pt-4">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-yellow-dim">
                   <span>{post.category}</span>

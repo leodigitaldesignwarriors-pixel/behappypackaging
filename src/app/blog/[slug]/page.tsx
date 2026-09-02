@@ -5,6 +5,7 @@ import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import Reveal from "@/components/animation/Reveal";
 import PlaceholderMedia from "@/components/ui/PlaceholderMedia";
 import { blogPosts, getBlogPostBySlug, getRelatedPosts } from "@/data/blog";
+import { cacheBustedSrc } from "@/lib/cacheBust";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -57,7 +58,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Reveal>
 
         <Reveal delay={0.05} className="my-10">
-          <PlaceholderMedia label={post.title} aspect="aspect-[16/9]" rounded="rounded-2xl" />
+          <PlaceholderMedia
+            label={post.title}
+            aspect="aspect-[16/9]"
+            rounded="rounded-2xl"
+            src={cacheBustedSrc(`/images/blog/${post.slug}.jpg`)}
+            priority
+          />
         </Reveal>
 
         <Reveal delay={0.1} className="space-y-5 text-base leading-relaxed text-stone sm:text-lg">
@@ -81,7 +88,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   data-cursor="Read"
                   className="group block"
                 >
-                  <PlaceholderMedia label={relatedPost.title} aspect="aspect-[4/3]" rounded="rounded-2xl" />
+                  <PlaceholderMedia
+                    label={relatedPost.title}
+                    aspect="aspect-[4/3]"
+                    rounded="rounded-2xl"
+                    src={cacheBustedSrc(`/images/blog/${relatedPost.slug}.jpg`)}
+                  />
                   <h3 className="mt-4 font-heading text-lg font-bold text-ink transition-colors group-hover:text-yellow-dim">
                     {relatedPost.title}
                   </h3>

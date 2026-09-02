@@ -84,6 +84,7 @@ export default function CaseStudyModal({ study, onClose }: CaseStudyModalProps) 
                   label={`${study.client} ${i + 1}`}
                   aspect="aspect-square"
                   rounded="rounded-xl"
+                  src={`/images/case-studies/${study.id}/gallery-${i + 1}.jpg`}
                 />
               ))}
             </div>
@@ -99,13 +100,15 @@ export default function CaseStudyModal({ study, onClose }: CaseStudyModalProps) 
               ))}
             </ul>
 
-            <div className="mt-7 rounded-2xl bg-off-white p-6">
-              <Quotes weight="fill" size={22} className="text-yellow-dim" />
-              <p className="mt-3 text-sm leading-relaxed text-ink sm:text-base">&ldquo;{study.quote}&rdquo;</p>
-              <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-stone">
-                {study.quoteAuthor} &middot; {study.quoteRole}
-              </p>
-            </div>
+            {study.quote && (
+              <div className="mt-7 rounded-2xl bg-off-white p-6">
+                <Quotes weight="fill" size={22} className="text-yellow-dim" />
+                <p className="mt-3 text-sm leading-relaxed text-ink sm:text-base">&ldquo;{study.quote}&rdquo;</p>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-stone">
+                  {study.quoteAuthor} &middot; {study.quoteRole}
+                </p>
+              </div>
+            )}
 
             <div className="mt-8 flex flex-wrap gap-3">
               <PillButton href={`/products/${study.productSlug}`} variant="black" cursorText="View">

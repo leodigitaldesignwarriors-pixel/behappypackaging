@@ -52,7 +52,13 @@ export default function SustainabilityPage() {
 
       <section className="relative overflow-hidden py-20">
         <Parallax speed={0.35} className="absolute -right-32 top-10 hidden h-[420px] w-[420px] opacity-30 lg:block">
-          <PlaceholderMedia label="Sustainable materials" aspect="aspect-square" variant="dot" className="h-full" />
+          <PlaceholderMedia
+            label="Sustainable materials"
+            aspect="aspect-square"
+            variant="dot"
+            className="h-full"
+            src={cacheBustedSrc("/images/illustrations/sustainability.jpg")}
+          />
         </Parallax>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -50,7 +50,13 @@ export default function AboutPage() {
 
       <section className="relative overflow-hidden py-20">
         <Parallax speed={0.3} className="absolute -left-24 top-10 hidden h-[380px] w-[380px] opacity-30 lg:block">
-          <PlaceholderMedia label="Our story" aspect="aspect-square" variant="dot" className="h-full" />
+          <PlaceholderMedia
+            label="Our story"
+            aspect="aspect-square"
+            variant="dot"
+            className="h-full"
+            src={cacheBustedSrc("/images/illustrations/our-story.png")}
+          />
         </Parallax>
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal>
@@ -69,6 +75,12 @@ export default function AboutPage() {
                 Since then we've built out a full manufacturing and design operation covering folding cartons,
                 corrugated, rigid boxes, displays, labels, bags, pouches, and eco-friendly packaging — shipping
                 to the USA, UK, and Canada with an average 8–12 day turnaround.
+              </p>
+              <p>
+                Our team and headquarters are based in Denver, Colorado, where quoting, design, and customer
+                support all happen — while our printing and production facility runs out of Pakistan, giving us
+                the manufacturing capacity to keep quality high and minimums low without passing enterprise-scale
+                overhead on to you.
               </p>
               <p>
                 We're still {siteConfig.basedIn}-based, still design-led, and still built around the idea that a

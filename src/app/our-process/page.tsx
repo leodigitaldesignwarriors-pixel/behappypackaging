@@ -89,7 +89,14 @@ export default function OurProcessPage() {
                     {step.timeframe}
                   </p>
                 </div>
-                <PlaceholderMedia label={step.title} aspect="aspect-[4/3]" tone="dark" variant="dot" rounded="rounded-2xl" />
+                <PlaceholderMedia
+                  label={step.title}
+                  aspect="aspect-[4/3]"
+                  tone="dark"
+                  variant="dot"
+                  rounded="rounded-2xl"
+                  src={step.image ? cacheBustedSrc(step.image) : undefined}
+                />
               </div>
             ))}
           </StackingCards>

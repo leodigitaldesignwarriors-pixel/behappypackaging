@@ -73,10 +73,20 @@ export default function Footer() {
           <div>
             <p className="mb-4 text-[11px] font-semibold uppercase tracking-wide text-yellow">Get in Touch</p>
             <ul className="space-y-2 text-sm text-white/70">
-              <li>{siteConfig.contact.email}</li>
-              {/* TODO: client to provide real phone number and address */}
-              <li className="text-white/40">Phone: to be added</li>
-              <li className="text-white/40">Address: to be added</li>
+              <li>
+                <a href={`mailto:${siteConfig.contact.email}`} className="transition-colors hover:text-yellow">
+                  {siteConfig.contact.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`}
+                  className="transition-colors hover:text-yellow"
+                >
+                  {siteConfig.contact.phone}
+                </a>
+              </li>
+              <li className="max-w-[220px] text-white/70">{siteConfig.contact.address}</li>
             </ul>
             <div className="mt-4 flex gap-3">
               <a href="#" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-yellow hover:text-yellow">

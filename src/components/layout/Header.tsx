@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { List, X, CaretDown } from "@phosphor-icons/react";
 import clsx from "clsx";
@@ -49,8 +50,15 @@ export default function Header() {
       onMouseLeave={() => setProductsOpen(false)}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" data-cursor="Home" className="font-heading text-lg font-extrabold tracking-tight text-ink">
-          BE HAPPY <span className="text-yellow-dim">PACKAGING</span>
+        <Link href="/" data-cursor="Home" className="shrink-0">
+          <Image
+            src="/images/logo-header.png"
+            alt="Be Happy Packaging"
+            width={2000}
+            height={620}
+            priority
+            className="h-9 w-auto sm:h-10"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

@@ -38,12 +38,12 @@ const included = [
 ];
 
 const portfolio = [
-  { label: "Cosmetic rigid box", aspect: "aspect-[3/4]" },
-  { label: "Coffee pouch system", aspect: "aspect-[4/3]" },
-  { label: "Retail display unit", aspect: "aspect-[4/5]" },
-  { label: "Folding carton range", aspect: "aspect-[4/3]" },
-  { label: "Mailer bag branding", aspect: "aspect-[3/4]" },
-  { label: "Gift box suite", aspect: "aspect-[4/3]" },
+  { label: "Cosmetic rigid box", aspect: "aspect-[3/4]", file: "cosmetic-rigid-box.jpg" },
+  { label: "Coffee pouch system", aspect: "aspect-[4/3]", file: "coffee-pouch-system.jpg" },
+  { label: "Retail display unit", aspect: "aspect-[4/5]", file: "retail-display-unit.jpg" },
+  { label: "Folding carton range", aspect: "aspect-[4/3]", file: "folding-carton-range.jpg" },
+  { label: "Mailer bag branding", aspect: "aspect-[3/4]", file: "mailer-bag-branding.jpg" },
+  { label: "Gift box suite", aspect: "aspect-[4/3]", file: "gift-box-suite.jpg" },
 ];
 
 export default function DesignServicesPage() {
@@ -107,7 +107,14 @@ export default function DesignServicesPage() {
                     {step.timeframe}
                   </p>
                 </div>
-                <PlaceholderMedia label={step.title} aspect="aspect-[4/3]" tone="dark" variant="dot" rounded="rounded-2xl" />
+                <PlaceholderMedia
+                  label={step.title}
+                  aspect="aspect-[4/3]"
+                  tone="dark"
+                  variant="dot"
+                  rounded="rounded-2xl"
+                  src={step.image ? cacheBustedSrc(step.image) : undefined}
+                />
               </div>
             ))}
           </StackingCards>
@@ -124,7 +131,12 @@ export default function DesignServicesPage() {
         <Reveal stagger={0.06} className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {portfolio.map((item) => (
             <div key={item.label} className="mb-5 break-inside-avoid">
-              <PlaceholderMedia label={item.label} aspect={item.aspect} rounded="rounded-2xl" />
+              <PlaceholderMedia
+                label={item.label}
+                aspect={item.aspect}
+                rounded="rounded-2xl"
+                src={cacheBustedSrc(`/images/design-portfolio/${item.file}`)}
+              />
             </div>
           ))}
         </Reveal>
