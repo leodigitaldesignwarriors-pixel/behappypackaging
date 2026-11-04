@@ -3,7 +3,7 @@ import { products } from "@/data/products";
 import { blogPosts } from "@/data/blog";
 import { siteConfig } from "@/data/site";
 
-const baseUrl = `https://${siteConfig.domain}`;
+const baseUrl = `https://${siteConfig.canonicalHost}`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

@@ -1,6 +1,9 @@
 export const siteConfig = {
   name: "Be Happy Packaging",
   domain: "behappypackaging.com",
+  // The apex 308-redirects to www, so www is canonical. Used for sitemap,
+  // robots and metadataBase; `domain` stays the plain name shown in copy.
+  canonicalHost: "www.behappypackaging.com",
   tagline: "Custom packaging, made happy.",
   foundedYear: 2016,
   get yearsInBusiness() {

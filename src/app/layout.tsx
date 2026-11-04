@@ -23,7 +23,7 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://${siteConfig.domain}`),
+  metadataBase: new URL(`https://${siteConfig.canonicalHost}`),
   title: {
     default: `${siteConfig.name} | Custom Packaging & Design`,
     template: `%s | ${siteConfig.name}`,
