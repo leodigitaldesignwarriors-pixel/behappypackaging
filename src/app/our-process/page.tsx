@@ -12,14 +12,14 @@ import { cacheBustedSrc } from "@/lib/cacheBust";
 export const metadata: Metadata = {
   title: "Our Process",
   description:
-    "From brief to delivery in 8–12 business days: brief & quote, design & dieline, prototype & proof, print & deliver.",
+    "From brief to delivery in 12–15 days: brief & quote, design & dieline, prototype & proof, print & deliver.",
 };
 
 const stepDetails: Record<number, string[]> = {
   1: ["Share product dimensions, quantity, and timeline", "Itemized quote back within one business day", "Applies to manufacturing, design, or sample requests"],
   2: ["Print-ready dieline built to your product's exact size", "Brand application and finish selection", "Unlimited revision rounds within the design phase"],
   3: ["Physical or digital proof, depending on product type", "Structural and color check before full production", "Sign-off required before we move to print"],
-  4: ["Full production run begins immediately after approval", "Shipped via DHL, FedEx, or USPS with tracking", "Lands on your dock 8–12 business days from kickoff"],
+  4: ["Full production run begins immediately after approval", "Shipped via DHL, FedEx, or USPS with tracking", "Lands on your dock 12–15 days door-to-door"],
 };
 
 export default function OurProcessPage() {

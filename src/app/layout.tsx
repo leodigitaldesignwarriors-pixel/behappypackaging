@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Custom folding cartons, corrugated, rigid boxes, displays, labels, bags, and eco-friendly packaging — plus packaging design services. 100-unit minimums, 8–12 day turnaround, shipping to the USA, UK & Canada.",
+    "Custom folding cartons, corrugated, rigid boxes, displays, labels, bags, and eco-friendly packaging — plus packaging design services. 300-unit minimums, 12–15 day door-to-door delivery, shipping to the USA, UK & Canada.",
   openGraph: {
     title: `${siteConfig.name} | Custom Packaging & Design`,
     description:

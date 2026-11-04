@@ -7,8 +7,8 @@ export const siteConfig = {
     return new Date().getFullYear() - this.foundedYear;
   },
   basedIn: "USA",
-  moq: 100,
-  turnaround: { min: 8, max: 12, unit: "business days" },
+  moq: 300,
+  turnaround: { min: 12, max: 15, unit: "days" },
   shipsTo: ["USA", "UK", "Canada"] as const,
   paymentMethods: "All major credit & debit cards accepted",
   shippingPartners: ["DHL", "FedEx", "USPS"] as const,
@@ -50,7 +50,7 @@ export const siteConfig = {
   ],
   announcements: [
     "Free shipping on orders within the USA, UK & Canada",
-    "8–12 day average turnaround",
+    "12–15 day door-to-door delivery",
     "Try before you commit — samples from just $99",
   ],
   trustMarquee: [
@@ -63,8 +63,8 @@ export const siteConfig = {
   stats: [
     { value: 10, suffix: "+", label: "Years in business" },
     { value: 3, suffix: "", label: "Countries served (USA, UK, Canada)" },
-    { value: 100, suffix: "", label: "Unit minimum order" },
-    { value: 12, suffix: " days", label: "Average turnaround (8–12 days)" },
+    { value: 300, suffix: "", label: "Unit minimum order" },
+    { value: 15, suffix: " days", label: "Door-to-door delivery (12–15 days)" },
   ],
   finishingOptions: [
     {
@@ -133,8 +133,8 @@ export const siteConfig = {
       step: 4,
       title: "Print & Deliver",
       description:
-        "Once you sign off, we move to full production and ship via DHL, FedEx, or USPS — landing on your dock in 8–12 business days total.",
-      timeframe: "Days 6–12",
+        "Once you sign off, we move to full production and ship via DHL, FedEx, or USPS — landing on your dock 12–15 days door-to-door.",
+      timeframe: "Days 6–15",
       image: "/images/process/print-deliver.jpg",
     },
   ],
@@ -142,12 +142,12 @@ export const siteConfig = {
     {
       question: "What's your minimum order quantity?",
       answer:
-        "Our MOQ is just 100 units, so you can test a new product line or run a limited edition without committing to a huge production run.",
+        "Our MOQ is 300 units per design — well below the 500–1,000 most custom box suppliers require — so you can test a new product line or run a limited edition without committing to a huge production run.",
     },
     {
       question: "How long does production take?",
       answer:
-        "Most orders ship within 8–12 business days from final proof approval. Rush timelines may be available depending on the product and quantity — ask your quote for details.",
+        "Most orders arrive 12–15 days door-to-door, counted from final artwork approval rather than from your first enquiry. That window covers production, finishing, freight and delivery to your address.",
     },
     {
       question: "Where do you ship?",

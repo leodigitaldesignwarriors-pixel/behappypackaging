@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import Reveal from "@/components/animation/Reveal";
+import BlogBody from "@/components/ui/BlogBody";
 import PlaceholderMedia from "@/components/ui/PlaceholderMedia";
 import { blogPosts, getBlogPostBySlug, getRelatedPosts } from "@/data/blog";
 import { cacheBustedSrc } from "@/lib/cacheBust";
@@ -32,6 +33,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound();
 
   const related = getRelatedPosts(post.slug);
+
+  const faqBlock = post.body.find(
+    (item): item is Extract<typeof item, { type: "faq" }> =>
+      typeof item !== "string" && item.type === "faq",
+  );
+  const faqSchema = faqBlock && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqBlock.items.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") },
+    })),
+  };
 
   return (
     <>
@@ -67,11 +82,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           />
         </Reveal>
 
-        <Reveal delay={0.1} className="space-y-5 text-base leading-relaxed text-stone sm:text-lg">
-          {post.body.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+        <Reveal delay={0.1}>
+          <BlogBody body={post.body} />
         </Reveal>
+
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
       </article>
 
       {related.length > 0 && (

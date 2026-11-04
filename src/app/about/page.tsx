@@ -18,7 +18,7 @@ const values = [
   {
     icon: Lightning,
     title: "Fast, not rushed",
-    description: "8–12 day production without cutting corners on proofing or quality control.",
+    description: "12–15 day door-to-door delivery without cutting corners on proofing or quality control.",
   },
   {
     icon: Heart,
@@ -74,7 +74,7 @@ export default function AboutPage() {
               <p>
                 Since then we've built out a full manufacturing and design operation covering folding cartons,
                 corrugated, rigid boxes, displays, labels, bags, pouches, and eco-friendly packaging — shipping
-                to the USA, UK, and Canada with an average 8–12 day turnaround.
+                to the USA, UK, and Canada, 12–15 days door-to-door.
               </p>
               <p>
                 Our team and headquarters are based in Denver, Colorado, where quoting, design, and customer

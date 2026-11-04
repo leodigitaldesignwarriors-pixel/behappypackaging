@@ -23,7 +23,7 @@ import { cacheBustedSrc } from "@/lib/cacheBust";
 export const metadata: Metadata = {
   title: "Custom Packaging & Design Services",
   description:
-    "Folding cartons, corrugated, rigid boxes, displays, labels, bags, and eco-friendly packaging — designed and manufactured for brands of any size. 100-unit MOQ, 8–12 day turnaround.",
+    "Folding cartons, corrugated, rigid boxes, displays, labels, bags, and eco-friendly packaging — designed and manufactured for brands of any size. 300-unit MOQ, 12–15 day door-to-door delivery.",
 };
 
 const hotspots: Hotspot[] = [
@@ -93,7 +93,7 @@ export default function HomePage() {
             <p className="mt-5 max-w-lg text-base text-off-white/80 sm:mt-6 sm:text-lg">
               Folding cartons, rigid boxes, corrugated, displays, bags, and eco-friendly
               packaging — designed and manufactured from a 100-unit minimum, delivered in
-              8–12 business days.
+              12–15 days door-to-door.
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <PillButton href="/get-a-quote" variant="yellow" size="lg" cursorText="Quote">
@@ -130,7 +130,7 @@ export default function HomePage() {
           <StatBlock value={siteConfig.yearsInBusiness} suffix="+" label="Years in business" />
           <StatBlock value={3} label="Countries served" caption="USA · UK · Canada" />
           <StatBlock value={siteConfig.moq} label="Unit minimum order" />
-          <StatBlock value={siteConfig.turnaround.max} suffix=" days" label="Avg. turnaround" caption="8–12 business days" />
+          <StatBlock value={siteConfig.turnaround.max} suffix=" days" label="Avg. turnaround" caption="12–15 days door-to-door" />
         </Reveal>
       </section>
 

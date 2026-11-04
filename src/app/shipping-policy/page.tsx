@@ -27,7 +27,7 @@ export default function ShippingPolicyPage() {
 
       <h2>Turnaround</h2>
       <p>
-        Average production turnaround is {siteConfig.turnaround.min}–{siteConfig.turnaround.max} business days
+        Average delivery is {siteConfig.turnaround.min}–{siteConfig.turnaround.max} days door-to-door
         from final proof approval to shipment. Transit time is separate from production time and varies by
         destination and carrier service level.
       </p>

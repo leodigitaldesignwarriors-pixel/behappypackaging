@@ -20,7 +20,7 @@ export default function TermsPage() {
       <p>
         Quotes provided through our site are estimates and are confirmed in writing before production begins. Our
         minimum order quantity is {siteConfig.moq} units per SKU unless otherwise agreed. Average production
-        turnaround is {siteConfig.turnaround.min}–{siteConfig.turnaround.max} business days from final proof
+        delivery is {siteConfig.turnaround.min}–{siteConfig.turnaround.max} days door-to-door from final proof
         approval, though this may vary by product and quantity.
       </p>
 

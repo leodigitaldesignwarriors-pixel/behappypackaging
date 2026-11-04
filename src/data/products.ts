@@ -67,7 +67,7 @@ export const products: Product[] = [
     materials: ["Rigid chipboard core (1.5–3mm)", "Printed wrap paper", "Textured & specialty stocks", "Magnetic & ribbon closures"],
     faqs: [
       { question: "What closure styles are available?", answer: "Two-piece lid-and-base, magnetic flip-top, drawer/slide, and book-fold are all standard options." },
-      { question: "How long does rigid box production take?", answer: "Rigid boxes are more labor-intensive than folding cartons, so build extra time into your 8–12 day estimate — your quote will confirm exact timing." },
+      { question: "How long does rigid box production take?", answer: "Rigid boxes are more labor-intensive than folding cartons, so build extra time into your 12–15 day estimate — your quote will confirm exact timing." },
     ],
     sampleTier: "printed-small",
     galleryCount: 4,
