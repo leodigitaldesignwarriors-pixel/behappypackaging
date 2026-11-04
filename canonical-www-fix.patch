@@ -1,0 +1,80 @@
+From de50108ed97ce0d9c711b96ff6b58874c3698ef5 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 03:33:13 +0500
+Subject: [PATCH] Point sitemap, robots and metadataBase at the canonical www
+ host
+
+The apex 308-redirects to www.behappypackaging.com, but siteConfig.domain is
+the bare apex, so every sitemap URL was a redirect. Search Console logs those
+as "Page with redirect" rather than indexing them.
+
+Adds siteConfig.canonicalHost and uses it for sitemap.ts, robots.ts and
+metadataBase. siteConfig.domain is unchanged and still supplies the plain
+name shown in the terms and privacy copy.
+
+Verified: the built sitemap now emits https://www.behappypackaging.com/...
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01LUJ7dwKSQ7tR3uzftiRK8N
+---
+ src/app/layout.tsx | 2 +-
+ src/app/robots.ts  | 2 +-
+ src/app/sitemap.ts | 2 +-
+ src/data/site.ts   | 3 +++
+ 4 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 858e5af..8b96a55 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -23,7 +23,7 @@ const rubik = Rubik({
+ });
+ 
+ export const metadata: Metadata = {
+-  metadataBase: new URL(`https://${siteConfig.domain}`),
++  metadataBase: new URL(`https://${siteConfig.canonicalHost}`),
+   title: {
+     default: `${siteConfig.name} | Custom Packaging & Design`,
+     template: `%s | ${siteConfig.name}`,
+diff --git a/src/app/robots.ts b/src/app/robots.ts
+index 87d34c3..43f1247 100644
+--- a/src/app/robots.ts
++++ b/src/app/robots.ts
+@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
+       userAgent: "*",
+       allow: "/",
+     },
+-    sitemap: `https://${siteConfig.domain}/sitemap.xml`,
++    sitemap: `https://${siteConfig.canonicalHost}/sitemap.xml`,
+   };
+ }
+diff --git a/src/app/sitemap.ts b/src/app/sitemap.ts
+index 3470d0b..d37493d 100644
+--- a/src/app/sitemap.ts
++++ b/src/app/sitemap.ts
+@@ -3,7 +3,7 @@ import { products } from "@/data/products";
+ import { blogPosts } from "@/data/blog";
+ import { siteConfig } from "@/data/site";
+ 
+-const baseUrl = `https://${siteConfig.domain}`;
++const baseUrl = `https://${siteConfig.canonicalHost}`;
+ 
+ export default function sitemap(): MetadataRoute.Sitemap {
+   const staticRoutes = [
+diff --git a/src/data/site.ts b/src/data/site.ts
+index 98e4953..8c8e3eb 100644
+--- a/src/data/site.ts
++++ b/src/data/site.ts
+@@ -1,6 +1,9 @@
+ export const siteConfig = {
+   name: "Be Happy Packaging",
+   domain: "behappypackaging.com",
++  // The apex 308-redirects to www, so www is canonical. Used for sitemap,
++  // robots and metadataBase; `domain` stays the plain name shown in copy.
++  canonicalHost: "www.behappypackaging.com",
+   tagline: "Custom packaging, made happy.",
+   foundedYear: 2016,
+   get yearsInBusiness() {
+-- 
+2.43.0
+
