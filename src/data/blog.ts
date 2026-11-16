@@ -23,6 +23,334 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "rigid-boxes-dallas",
+    title: "Custom Rigid Boxes in Dallas: Styles, Costs and Lead Times",
+    excerpt:
+      "Rigid boxes sit in their own cost bracket for a reason. Here is what the four closure styles actually cost, how long they take, and when a Dallas brand should pay for one.",
+    date: "2026-11-16",
+    category: "Rigid Boxes",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Rigid boxes are the packaging brands buy when the box is part of the product rather than a container for it. They are also the category where quotes surprise people most, because a rigid box is built rather than folded, and the price reflects that." },
+      { type: "p", text: "This is a practical guide for Dallas and DFW brands pricing rigid packaging for the first time: what the construction actually is, what each closure style costs, how long it takes, and where a local supplier beats us." },
+
+      { type: "h2", text: "What makes a box rigid" },
+      { type: "p", text: "A folding carton is one printed sheet of board, die-cut, creased and shipped flat. A rigid box is not. It starts as a dense chipboard core, typically 1.5–3mm, cut and formed into a shell that does not fold. That shell is then wrapped with a separately printed sheet of paper or specialty stock, and much of that wrapping is done by hand." },
+      { type: "p", text: "Three consequences follow from that, and they explain almost everything about rigid pricing:" },
+      {
+        type: "list",
+        items: [
+          "The box arrives assembled, not flat, so you are shipping air. Freight per unit is higher than any folding carton.",
+          "The labour content is high and does not fall much with volume, because a person is still wrapping each box.",
+          "There are effectively two print jobs in one — the wrap, and often a printed interior or insert.",
+        ],
+      },
+      { type: "p", text: "If your product does not need any of that, our [comparison of folding carton, corrugated and rigid](/blog/folding-carton-vs-corrugated-vs-rigid) is the better place to start. Rigid is a deliberate choice, not an upgrade everyone should make." },
+
+      { type: "h2", text: "The four closure styles" },
+      { type: "p", text: "Closure is the first decision, because it drives both cost and the feel of the box opening. We produce all four as standard." },
+      {
+        type: "table",
+        head: ["Style", "How it opens", "What it suits", "Cost impact"],
+        rows: [
+          ["Two-piece lid and base", "A separate lid lifts off a base tray", "Apparel, kits, corporate gifting", "The baseline rigid cost"],
+          ["Magnetic flip-top", "Front-hinged lid, held shut by hidden magnets", "Beauty, fragrance, electronics, VIP gifting", "Highest — hardware plus extra assembly steps"],
+          ["Drawer or slide", "An inner tray slides out of an outer sleeve", "Jewellery, watches, small premium SKUs", "Above baseline — two built components"],
+          ["Book-fold", "Opens sideways like a hardback cover", "Press kits, subscription boxes, multi-piece sets", "Above baseline — spine construction"],
+        ],
+      },
+      { type: "p", text: "A magnetic box photographs and demos best, which is why most brands ask for it first. It is also the most expensive thing on that list, and on a small SKU the magnets can be a surprising share of the unit cost. Worth pricing both ways before you commit." },
+
+      { type: "h2", text: "What rigid boxes cost" },
+      { type: "p", text: "Across the market, rigid boxes commonly land several times the unit price of a folding carton of the same dimensions. At a few hundred units, most brands see numbers in the single-digit dollars per box, moving up quickly with size, magnets, foil and specialty wrap stock." },
+      { type: "p", text: "Treat that as orientation rather than a quote. The variables that move it most are, in rough order: overall size, closure style, wrap stock, finishes, and whether there is an insert inside. Our [full pricing breakdown](/blog/custom-box-pricing-guide) covers how tooling and setup are spread across a run, and that logic applies here too." },
+      { type: "p", text: "Two rigid-specific cost notes that catch people out. First, size matters more than it does for cartons, because a rigid box cannot be nested or shipped flat — a box an inch larger in every direction costs more to make and noticeably more to freight. Second, the insert is part of the box. A rigid shell with a loose product rattling inside undoes the thing you paid for, so budget for a [box insert](/products/box-inserts) from the start rather than discovering it at sample stage." },
+
+      { type: "h2", text: "Lead times" },
+      { type: "p", text: "Our standard window is 12–15 days door-to-door from final artwork approval, and rigid sits at the longer end of it. Hand assembly and wrapping add days that a folding carton run does not have, and a magnetic or drawer build adds a little more again. Your quote states the actual timing for your spec." },
+      { type: "p", text: "The clock starts at artwork approval, not at your first email. If you do not have print-ready files, add about a week for our [design service](/design-services) — inspiration, mockups, revisions and final artwork — and another few days if you want a printed sample in your hands before the run. A [printed sample is $99](/samples) for small-format rigid, which is most rigid work." },
+      { type: "p", text: "Working backwards from a date is the useful exercise. If you need boxes on a shelf or at Dallas Market Center for a specific show, count back the production window, the sample round and the design time, and you usually find the real deadline is four to six weeks earlier than people assume." },
+
+      { type: "h2", text: "Where a Dallas supplier beats us" },
+      { type: "p", text: "Honestly: more often than our own marketing would suggest, and it is worth being clear about when." },
+      {
+        type: "list",
+        items: [
+          "Urgent reorders. If you need more of an existing box next week, a DFW plant with your die on the shelf will win on speed and you should use one.",
+          "Press checks you want to attend in person. We will send samples and photographs, but we cannot put you next to the press.",
+          "Plain, heavy, cheap packaging. Shipping corrugated across the world to save on the unit price is bad arithmetic. Buy that locally.",
+        ],
+      },
+      { type: "p", text: "Where we win is the opposite case: a hand-built rigid box at a few hundred units, with foiling, embossing and assembly all happening under one roof. We make them in our own facility in Lahore, which is why our minimum is 300 per design rather than the 1,000 most rigid quotes start at, and why a foiled box does not get handed to a third party halfway through." },
+      { type: "p", text: "If you are comparing us against a local shortlist, the [seven questions worth asking any packaging supplier](/blog/choosing-a-packaging-company-dallas) will make the differences between quotes legible." },
+
+      { type: "h2", text: "A short spec checklist" },
+      { type: "p", text: "Everything below changes the number. Decide it, or ask us to price options, before you compare quotes." },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Product dimensions, not box dimensions — let the shell be built around the product with the right clearance.",
+          "Closure style, and whether you want it priced against a cheaper alternative.",
+          "Wrap stock: printed art paper, textured, or specialty.",
+          "Finishes: foil stamping, embossing, soft-touch lamination, spot UV.",
+          "Interior: printed, plain, or an insert — and if an insert, what material.",
+          "Hardware: magnets, ribbon pulls, closures.",
+          "Quantity, plus one quantity above it so you can see the curve.",
+        ],
+      },
+      { type: "p", text: "Send that list and you get a real number. Send a photo of a box you like and you get a guess, which helps nobody. When you are ready, the [quote form](/get-a-quote) collects exactly these fields." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is the minimum order for rigid boxes?",
+            a: "Ours is 300 units per design. Published rigid minimums across the trade more commonly start at 1,000, because the setup and hand-assembly economics push suppliers upward.",
+          },
+          {
+            q: "How much more do rigid boxes cost than folding cartons?",
+            a: "Several times more at the same dimensions, as a rule. The box is built from a thicker core, wrapped by hand, and shipped assembled rather than flat, and each of those adds cost that volume does not remove.",
+          },
+          {
+            q: "How long do rigid boxes take to produce?",
+            a: "Our door-to-door window is 12–15 days from final artwork approval, with rigid at the longer end and magnetic or drawer builds adding a little more. Design and sampling sit before that window, not inside it.",
+          },
+          {
+            q: "Can I get a sample before ordering?",
+            a: "Yes. A printed sample is $99 for small-format rigid, which covers most rigid work. For very large boxes where printing a single unit is not practical, we send a plain paper sample at the same price so you can check the structure.",
+          },
+          {
+            q: "Do you ship rigid boxes to Dallas?",
+            a: "Yes, door-to-door to the USA, UK and Canada through DHL, FedEx and USPS. Freight is included in the quote rather than added at the end, which matters more for rigid than for anything else we make, because assembled boxes take up real volume.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "rigid-boxes-dallas-beauty-brands",
+    title: "Rigid Boxes for Dallas Beauty and Fragrance Brands: Closures, Inserts and Finishes",
+    excerpt:
+      "Beauty is the category where a rigid box earns its cost back. Here is how to spec one that survives shelf, shipping and the camera.",
+    date: "2026-11-14",
+    category: "Beauty & Cosmetics",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Beauty and fragrance are the categories rigid boxes were made for. The product is small, the margin supports the packaging, and the moment the box opens is doing real work on whether someone buys again or films it." },
+      { type: "p", text: "It is also the category where a badly specced rigid box is most obvious. A heavy glass bottle moving inside a beautiful shell reads as cheap, however good the printing is. What follows is how we spec rigid for beauty brands, and the decisions worth making early." },
+
+      { type: "h2", text: "The box has three jobs, not one" },
+      { type: "p", text: "Most briefs we receive describe the first job and skip the other two." },
+      {
+        type: "list",
+        items: [
+          "Shelf: it has to look like it costs what you are charging, under retail lighting, next to competitors.",
+          "Transit: it has to arrive undamaged after a courier has handled it, often as the only layer around glass.",
+          "Camera: it has to photograph well on a phone, in a bathroom, with no styling.",
+        ],
+      },
+      { type: "p", text: "Those pull in different directions. A high-gloss lamination photographs beautifully in a studio and shows every fingerprint on a shelf. A deep matte looks expensive and scuffs in a courier bag. Knowing which job matters most for your channel is the real brief." },
+
+      { type: "h2", text: "Choosing a closure for a beauty SKU" },
+      {
+        type: "table",
+        head: ["SKU type", "Closure that usually fits", "Why"],
+        rows: [
+          ["Single serum or cream", "Two-piece lid and base, or drawer", "Small footprint, low cost per unit, insert does the protection"],
+          ["Fragrance bottle", "Drawer or magnetic", "Weight needs a tight-fitting cavity; the slow reveal suits the category"],
+          ["Gift set or multi-piece kit", "Magnetic flip-top or book-fold", "Opens flat, shows everything at once, photographs as a set"],
+          ["Refill or repeat purchase", "Folding carton, not rigid", "The customer already had the experience once; spend the money elsewhere"],
+        ],
+      },
+      { type: "p", text: "That last row is the one we would rather say early than late. If a customer is buying the same product for the fourth time, a rigid box is not changing their mind, and the money is better spent on the first-purchase box or on the insert." },
+
+      { type: "h2", text: "Inserts are not an accessory" },
+      { type: "p", text: "For beauty, the [insert](/products/box-inserts) is the part of the package doing the protection and most of the perceived quality. It is also the line most brands under-budget." },
+      {
+        type: "list",
+        items: [
+          "Foam, usually EVA, cut to the product silhouette. Holds heavy glass firmly and feels substantial. The default for fragrance.",
+          "Moulded pulp. Recyclable, increasingly expected, and a good match if you are making sustainability claims elsewhere on the pack.",
+          "Folded card platforms. Cheapest, lightest, and fine for lighter plastic or tube products.",
+          "Printed tissue and a card wrap. Not structural, but it controls the order in which things are revealed.",
+        ],
+      },
+      { type: "p", text: "The test to apply at sample stage is simple: close the box, shake it gently, and listen. If you can hear the product move, the insert is wrong, and no amount of foil on the lid will fix the impression that makes." },
+
+      { type: "h2", text: "Finishes that photograph" },
+      { type: "p", text: "Finishes are where beauty budgets go, so it is worth knowing what each one buys you." },
+      {
+        type: "table",
+        head: ["Finish", "What it does", "Worth knowing"],
+        rows: [
+          ["Soft-touch lamination", "Velvet feel, deep flat colour", "Reads as premium in the hand. Shows scuffs on dark colours"],
+          ["Foil stamping", "Metallic logo or type with real shine", "Needs its own die. Small, high-contrast areas work best"],
+          ["Embossing or debossing", "Raised or recessed texture", "Separate tooling again. Pairs well with foil on the same mark"],
+          ["Spot UV", "Gloss pattern over a matte base", "Nearly invisible straight-on, striking at an angle. Cheap theatre, used well"],
+        ],
+      },
+      { type: "p", text: "A pattern worth copying: one restrained metallic mark on a deep uncoated or soft-touch wrap. It costs less than covering the box in effects and it photographs better, because a phone camera needs one thing to catch the light rather than six." },
+
+      { type: "h2", text: "Three things to get right before artwork" },
+      { type: "p", text: "These are the revisions we see most often, and all three are cheaper to fix before the die is cut." },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Leave room for required text. Ingredient lists, net contents, responsible-person details and batch codes all have to live somewhere, and a layout designed without space for them gets compromised late. Check your own regulatory requirements for the markets you sell into, and reserve the panel early.",
+          "Decide where the batch code goes and how it is applied — printed, stickered or inkjetted. A sticker over a soft-touch lid is a visible afterthought.",
+          "Check the colour on a sample, not a screen. Deep blacks, brand-specific pastels and anything metallic behave differently on wrap stock than they do on a monitor. This is what the $99 [printed sample](/samples) is for.",
+        ],
+      },
+
+      { type: "h2", text: "Minimums and launch volume" },
+      { type: "p", text: "A new beauty brand rarely wants 1,000 rigid boxes of a SKU that has not sold yet, and that is the usual reason rigid gets dropped from a launch plan. Our minimum is 300 per design, made in our own facility, which is normally enough to cover a launch, a press mailing and a show without committing a year of stock to a design nobody has bought." },
+      { type: "p", text: "Per unit, 300 costs more than 1,000 — that curve is steep at the bottom and we are not going to pretend otherwise. What it buys you is the option to change the box after you have seen what sells. For most first runs that is the better trade." },
+      { type: "p", text: "If you are planning a launch around a Dallas Market Center show or a retail reset, work backwards: production, then a sample round, then roughly a week of [design](/design-services) if you do not have final artwork. Our [process page](/our-process) sets out each stage and what we need from you at it." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Are rigid boxes safe for cosmetics?",
+            a: "The box is secondary packaging, so it sits outside the product container and the compatibility questions that apply to primary packaging do not apply to it. We hold food-grade stock and ink certification and FSC chain-of-custody, and we will send the documentation with a quote if you need it for a retailer.",
+          },
+          {
+            q: "What closure is best for a fragrance box?",
+            a: "A drawer or a magnetic flip-top, with a cavity insert cut to the bottle. Both give a slow, controlled reveal, and both hold weight in a way a lift-off lid does not once a courier has had it.",
+          },
+          {
+            q: "Can you match my brand colour exactly?",
+            a: "Close, and closer on coated wrap than on textured or uncoated stock, where the surface absorbs ink differently. If an exact match matters, order the printed sample and approve the colour physically rather than on screen.",
+          },
+          {
+            q: "Do you make the insert as well as the box?",
+            a: "Yes. Printing, lamination, foiling, die-cutting, gluing and assembly all happen in our own facility, inserts included, so there is no handoff in the middle of your job.",
+          },
+          {
+            q: "How many rigid boxes should a new beauty brand order?",
+            a: "Enough for the launch, a press mailing and whatever samples you give away — for most brands that is a few hundred rather than a thousand. Our 300-unit minimum exists so that first number does not have to be a gamble.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "rigid-box-minimums-dallas",
+    title: "Quoted 1,000 Rigid Boxes? How Dallas Brands Order 300 Instead",
+    excerpt:
+      "High rigid minimums are not arbitrary — they protect the supplier from the hand labour. Here is what actually changes at 300 units, and when 1,000 is the right call anyway.",
+    date: "2026-11-12",
+    category: "Buying Guide",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "A brand asks four rigid box suppliers for 300 units. Three come back with a 1,000-unit minimum and one ignores the question. This happens constantly, and it is the single most common reason a launch ends up in a folding carton instead." },
+      { type: "p", text: "The minimum is not a negotiating tactic. It is arithmetic about hand labour. Understanding which part of it is real tells you what to ask for, and when to stop pushing and just order the thousand." },
+
+      { type: "h2", text: "Why rigid minimums start so high" },
+      { type: "p", text: "Three fixed costs sit at the front of every rigid job, and a fourth cost that is not fixed at all — which is the part people miss." },
+      {
+        type: "list",
+        items: [
+          "Tooling: a cutting die for the shell and the wrap, plus separate dies for any foil or emboss.",
+          "Plates: one per colour on the wrap print, unless the job runs digitally.",
+          "Setup: the time to make ready, which is the same whether you run 300 boxes or 3,000.",
+          "Assembly labour: a person forming and wrapping each box. This does not get cheaper with volume, and on a short run it is the dominant cost.",
+        ],
+      },
+      { type: "p", text: "That fourth line is why rigid behaves differently from every other packaging category. On a folding carton, volume spreads the fixed costs and the per-unit price collapses. On rigid, volume spreads the tooling but the hands are still there on box 3,000, so the curve flattens earlier and sits higher." },
+      { type: "p", text: "A supplier set up for 10,000-unit runs genuinely loses money making you 300. The minimum is them saying so politely." },
+
+      { type: "h2", text: "What the 1,000-unit quote is protecting" },
+      { type: "p", text: "Worth separating two different suppliers who both quote you a minimum of 1,000." },
+      {
+        type: "table",
+        head: ["Supplier type", "Why the minimum is 1,000", "What to do"],
+        rows: [
+          ["A broker reselling a factory's capacity", "They are passing on the factory's minimum, plus a margin, and cannot move it", "Ask who manufactures it. If they will not say, you have your answer"],
+          ["A large plant optimised for long runs", "Their changeover cost is real and short runs block a line", "Believe them. Do not try to negotiate it down"],
+          ["A factory with its own assembly team", "It may not be 1,000 at all — ask for it per design", "Ask directly for 300, and for the unit price at both quantities"],
+        ],
+      },
+      { type: "p", text: "The per-design detail matters as much as the number. A 1,000-unit minimum across an order is a different proposition from 1,000 per design when you are launching three sizes, which is the situation that quietly kills most small rigid projects." },
+
+      { type: "h2", text: "What actually changes at 300" },
+      { type: "p", text: "We make rigid boxes to a 300-unit minimum per design in our own facility, so this is the honest version of that trade rather than a pitch." },
+      {
+        type: "table",
+        head: ["At 300 units", "At 1,000 units"],
+        rows: [
+          ["Higher unit price — tooling and setup spread across a third of the boxes", "Lower unit price, and the biggest single drop you will see on the curve"],
+          ["Less cash at risk, and freight on a smaller consignment", "More cash committed, and warehouse space to find"],
+          ["You can change the box after seeing what sells", "You are living with this design for a year or more"],
+          ["Enough for a launch, a press mailing and a show", "Enough to supply retail reorders without a second run"],
+        ],
+      },
+      { type: "p", text: "Per box, 1,000 is cheaper and often by a lot. In total, obviously not. The right question is not which is cheaper but how confident you are in the design — and whether you would rather find out at 300 units or 1,000." },
+
+      { type: "h2", text: "Five ways to make a short rigid run work" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Share tooling across sizes. One shell dimension with different printed wraps costs far less than three dies. If your range can live in one box size, it should.",
+          "Put the budget on one finish, not four. A single foil mark on a plain wrap outperforms a box carrying foil, emboss, spot UV and soft-touch, and costs a fraction.",
+          "Price your brand colour in CMYK before committing to a spot Pantone. On a wrap, the difference is often smaller than the plate cost.",
+          "Spend on the insert before the exterior. It does the protection and most of the perceived quality, and it is cheaper than another finish.",
+          "Ask for the price at 300 and at 500 in the same quote. Sometimes the step is small enough to be worth taking, and you cannot know without seeing both.",
+        ],
+      },
+      { type: "p", text: "What we would not recommend is shaving a dimension to chase a lower price on a rigid box the way you would on a folding carton. On a carton, sheet yield rewards that. On rigid, you mostly end up with a box that fits the product badly." },
+
+      { type: "h2", text: "When you should just order 1,000" },
+      { type: "p", text: "Three cases, and in all of them a short run is false economy." },
+      {
+        type: "list",
+        items: [
+          "The design is settled and the product sells. You already know. Order the volume and take the unit price.",
+          "You have retail committed. Running out of packaging mid-programme costs more than the stock would have.",
+          "The box is plain enough that tooling dominates the quote. If there are no finishes to economise on, quantity is the only lever you have.",
+        ],
+      },
+      { type: "p", text: "And one case where neither answer is right: if you need a few hundred plain shippers in Dallas next week, buy them from a DFW plant. Rigid is for the box the customer keeps. Our [guide to the three box families](/blog/folding-carton-vs-corrugated-vs-rigid) covers where each one earns its place." },
+
+      { type: "h2", text: "How to get a number you can act on" },
+      { type: "p", text: "We quote accurately once the design is finalised, and vaguely before it, because the structure determines the build and the build determines most of the cost. To get a real number, send product dimensions, closure style, wrap stock, finishes, whether there is an insert, and two quantities." },
+      { type: "p", text: "If there is no artwork yet, our [design service](/design-services) takes about a week through inspiration, mockups, revisions and final files, and the quote that follows is a real one. A $99 [printed sample](/samples) comes before the run, not after it. Payment is in full at order confirmation, which is worth knowing before you plan cash flow around a launch date." },
+      { type: "p", text: "The [quote form](/get-a-quote) asks for exactly those fields, and if you are still shortlisting suppliers, the [seven questions worth asking all of them](/blog/choosing-a-packaging-company-dallas) will make the answers comparable." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Can I order 100 rigid boxes?",
+            a: "Not from us — our minimum is 300 per design, and below that the setup and assembly cost per box stops making sense for either side. Some digital-first suppliers advertise lower, usually with a limited range of stock sizes and finishes.",
+          },
+          {
+            q: "Why is the rigid minimum higher than for folding cartons?",
+            a: "Because the labour does not scale away. A rigid box is formed and wrapped largely by hand, so a short run is expensive per box in a way a folding carton run is not, and most suppliers set minimums high enough to cover that.",
+          },
+          {
+            q: "Is the minimum per order or per design?",
+            a: "Ours is per design. Ask every supplier this specifically — a 1,000-unit minimum per design is a very different number from 1,000 across an order when you are launching several sizes.",
+          },
+          {
+            q: "How much cheaper is 1,000 than 300?",
+            a: "Meaningfully, and the drop between those two quantities is the steepest part of the curve. We will price both in the same quote so you can see the actual step for your spec rather than a rule of thumb.",
+          },
+          {
+            q: "Does the tooling have to be paid again on a reorder?",
+            a: "No. Tooling is a one-time cost, so a reorder of an unchanged design does not pay for the dies or plates a second time. That is part of why the second run of a box is usually the cheapest one you will buy.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
     slug: "custom-box-pricing-guide",
     title: "How Much Do Custom Boxes Cost? A Pricing Guide for 300–1,000 Unit Orders",
     excerpt:
