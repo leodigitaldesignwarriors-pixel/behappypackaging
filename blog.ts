@@ -1,0 +1,1072 @@
+// Blog content.
+// A body item is either a plain string (rendered as a paragraph) or a typed block.
+// Inline links use [label](/href) syntax and are parsed by <BlogBody />.
+
+export type BlogBlock =
+  | { type: "h2"; text: string }
+  | { type: "p"; text: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "table"; head: string[]; rows: string[][]; caption?: string }
+  | { type: "faq"; items: { q: string; a: string }[] };
+
+export type BlogBodyItem = string | BlogBlock;
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+  author: string;
+  body: BlogBodyItem[];
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "dallas-packaging-order-calendar-2027",
+    title: "The 2027 Packaging Order Calendar for Dallas Brands",
+    excerpt:
+      "Every US retail date that matters in 2027, with the day you actually have to order to make it. Including the Dallas Market Center weeks.",
+    date: "2026-11-25",
+    category: "Seasonal",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Most packaging that misses a season was not ordered late. It was decided late. The decision took three weeks, the artwork took another two, and by the time anyone asked a printer for a date the season was already inside the production window." },
+      { type: "p", text: "This is the fix: every major US retail date in 2027, the Dallas Market Center weeks alongside them, and the day a Dallas brand has to start for each one. Bookmark it, or put the dates in whatever your team actually looks at." },
+
+      { type: "h2", text: "The arithmetic behind every date below" },
+      { type: "p", text: "Four blocks of time sit between deciding you want a box and having boxes on a shelf. Three of them are not production." },
+      {
+        type: "table",
+        head: ["Stage", "How long", "Notes"],
+        rows: [
+          ["Design", "About a week", "Inspiration, mockups, revisions, final print-ready artwork. Skip this only if you already have files"],
+          ["Sampling", "About a week", "A printed sample made, shipped and actually looked at. Optional, and we would not skip it on a first run"],
+          ["Production + delivery", "12–15 days", "Door-to-door from final artwork approval, not from your first email"],
+          ["Your own buffer", "2 weeks", "Packing, photography, getting stock into a store or a 3PL before you start selling"],
+        ],
+      },
+      { type: "p", text: "Add those up and you get the two numbers the calendar runs on: about five weeks ahead if your artwork is print-ready, and about nine weeks ahead if you are starting from a conversation. The dates below are calculated from the event, not from the day you remember it is coming." },
+
+      { type: "h2", text: "2027 retail calendar" },
+      {
+        type: "table",
+        head: ["Occasion", "2027 date", "Order by (artwork ready)", "Start by (need design)"],
+        rows: [
+          ["Valentine's Day", "Sun 14 February", "8 January", "11 December 2026"],
+          ["Easter", "Sun 28 March", "19 February", "22 January"],
+          ["Mother's Day", "Sun 9 May", "2 April", "5 March"],
+          ["Father's Day", "Sun 20 June", "14 May", "16 April"],
+          ["Independence Day", "Sun 4 July", "28 May", "30 April"],
+          ["Halloween", "Sun 31 October", "24 September", "27 August"],
+          ["Thanksgiving", "Thu 25 November", "19 October", "21 September"],
+          ["Black Friday / Cyber Monday", "26 & 29 November", "20 October", "22 September"],
+          ["Christmas", "Sat 25 December", "18 November", "21 October"],
+        ],
+      },
+      { type: "p", text: "Two quirks worth noting in 2027. Valentine's Day, Easter, Mother's Day, Father's Day, Independence Day and Halloween all fall on a Sunday, which pulls your real shipping deadline back to the Thursday or Friday before — plan the selling window, not the date. And there are 29 days between Black Friday and Christmas, one more than 2026, which is a slightly kinder peak than you had this year." },
+
+      { type: "h2", text: "Dallas Market Center weeks" },
+      { type: "p", text: "If you sell wholesale, these matter more than the holidays, because your packaging has to be finished and photographed before buyers see it — not after." },
+      {
+        type: "table",
+        head: ["Market", "2027 dates", "Order by", "Start by"],
+        rows: [
+          ["Total Home & Gift Market (+ Lightovation)", "6–12 January", "30 November 2026", "Already passed"],
+          ["Apparel & Accessories Market, KidsWorld", "19–22 January", "13 December 2026", "Already passed"],
+          ["Gift & Home Market, Apparel & Accessories, KidsWorld", "16–19 March", "7 February", "10 January"],
+          ["Apparel & Accessories Market", "15–18 June", "9 May", "11 April"],
+          ["Total Home & Gift Market (+ Lightovation)", "23–29 June", "17 May", "19 April"],
+          ["Gift & Home Market", "14–16 September", "8 August", "11 July"],
+          ["Apparel & Accessories Market, KidsWorld", "19–22 October", "12 September", "15 August"],
+        ],
+        caption: "Market dates from Dallas Market Center's published 2027 calendar. January editions shift a week later from 2028.",
+      },
+      { type: "p", text: "The January Total Home & Gift Market is six weeks out as we publish this, which means new packaging for that show is already outside the comfortable window. Not impossible with print-ready artwork and a simple structure — see what we say about [tight deadlines](/blog/christmas-packaging-last-minute-dallas) — but no longer a planning exercise." },
+
+      { type: "h2", text: "How to use this without over-ordering" },
+      { type: "p", text: "The temptation with a calendar like this is to order seasonal packaging for everything on it. Most brands should not." },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Pick the two dates that actually move your revenue. For most Dallas food and gift brands that is Christmas and one spring date; for beauty it is usually Valentine's Day and Mother's Day.",
+          "For everything else, change the sleeve, the sticker or the tissue rather than the box. A [label or belly band](/products/labels-stickers) turns a core box into a seasonal one for a fraction of the cost and a fraction of the lead time.",
+          "Order seasonal stock to the season, not to the price break. A cheaper unit price on 1,000 Valentine's boxes is not cheaper if 600 of them are still in your garage in March.",
+          "Keep one structure across seasons and change only the print. Same die, same tooling, new artwork — our [minimums piece](/blog/rigid-box-minimums-dallas) explains why that is the single biggest saving available to a small run.",
+        ],
+      },
+      { type: "p", text: "Our minimum is 300 per design, which exists precisely so a seasonal run does not have to be a year's commitment. Pricing works the way it does for any run — the [cost breakdown](/blog/custom-box-pricing-guide) applies unchanged." },
+
+      { type: "h2", text: "What to do in the next two weeks" },
+      { type: "p", text: "If you want seasonal packaging in 2027, the two live deadlines right now are Valentine's Day, which needs design started by 11 December, and the March Gift & Home Market, which needs design started by 10 January. Everything else can wait until the new year without costing you anything." },
+      { type: "p", text: "Send dimensions, quantity and the date you need stock in hand, and we will work backwards and tell you honestly whether it fits. If it does not, we will say so rather than take the order and hope — the [quote form](/get-a-quote) takes about two minutes, and our [process page](/our-process) sets out what happens after." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "How far ahead should I order seasonal packaging?",
+            a: "About five weeks before you need stock in hand if your artwork is print-ready, and about nine weeks if you still need design and a printed sample. Those numbers already include a two-week buffer for packing and getting stock where it needs to be.",
+          },
+          {
+            q: "What is the latest I can order custom boxes and still make a date?",
+            a: "Production and delivery run 12–15 days from final artwork approval, so in theory a little over two weeks. In practice anything under four weeks means no sample round and no revisions, which is a real risk on a first run.",
+          },
+          {
+            q: "Can I do seasonal packaging at a small quantity?",
+            a: "Yes — our minimum is 300 per design. Seasonal runs are exactly the case the minimum exists for, because the design is only relevant for a few weeks.",
+          },
+          {
+            q: "What is the cheapest way to make packaging seasonal?",
+            a: "Keep the box and change what goes on it. Stickers, belly bands, printed tissue or a sleeve cost a fraction of new tooling and can be turned around much faster than a new structure.",
+          },
+          {
+            q: "When are the 2027 Dallas Market Center dates?",
+            a: "Total Home & Gift Market runs 6–12 January and 23–29 June, Gift & Home Market 16–19 March and 14–16 September, and Apparel & Accessories Market 19–22 January, 15–18 June and 19–22 October. The January editions shift a week later from 2028.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "valentines-day-packaging-dallas",
+    title: "Valentine's Day Packaging for Dallas Brands: Order in December, Not January",
+    excerpt:
+      "February 14 falls on a Sunday in 2027, which pulls every deadline forward. Here is what to order, and the date you have to order it by.",
+    date: "2026-11-24",
+    category: "Seasonal",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Valentine's Day is the most commonly missed packaging deadline we see, and the reason is simple: it feels like a January job. It is not. January is when the boxes need to arrive." },
+      { type: "p", text: "In 2027, 14 February is a Sunday. If you are shipping direct to customers, your real cut-off is the Wednesday or Thursday before, around 10–11 February. If you are selling through a Dallas retailer, their shelves want product in the first week of February. Either way, the date you are planning towards is not the fourteenth." },
+
+      { type: "h2", text: "The dates that actually bind" },
+      {
+        type: "table",
+        head: ["If you…", "Need stock in hand", "Order by (artwork ready)", "Start by (need design)"],
+        rows: [
+          ["Ship D2C", "last week of January", "early January", "mid-December"],
+          ["Sell through Dallas retail", "third week of January", "late December", "early December"],
+          ["Show at the January Market", "first week of January", "already tight", "already passed"],
+        ],
+      },
+      { type: "p", text: "Our production window is 12–15 days door-to-door from final artwork approval. Add a week if you want a printed sample first, and about a week for [design](/design-services) if you do not have files. That is the whole calculation, and it is why December is the month this gets decided. The [full 2027 calendar](/blog/dallas-packaging-order-calendar-2027) has the same maths for every other date in the year." },
+
+      { type: "h2", text: "What Dallas brands actually order for Valentine's" },
+      {
+        type: "table",
+        head: ["Category", "What usually works", "Why"],
+        rows: [
+          ["Chocolatiers and bakeries", "Rigid two-piece or folding carton with an insert", "The insert holds pieces in place; food-grade stock and ink matter here"],
+          ["Florists and gift studios", "Rigid lid-and-base, or a printed shopping bag", "Hand-off is in person — the carry matters as much as the box"],
+          ["Beauty and fragrance", "Magnetic or drawer rigid with a cavity insert", "Gift-set format, and the reveal is the product"],
+          ["Jewellery", "Small drawer rigid, foam or card platform", "Small footprint, high perceived value per cubic inch"],
+          ["Anyone testing the season", "Existing box + printed sleeve or sticker", "Lowest cost, shortest lead time, no new tooling"],
+        ],
+      },
+      { type: "p", text: "That last row deserves more attention than it gets. If you have never sold a Valentine's product before, a seasonal sleeve on your core box tells you whether the demand is there, for a fraction of what a dedicated run costs. Learn first, tool up next year." },
+
+      { type: "h2", text: "Printing red is harder than it looks" },
+      { type: "p", text: "Valentine's artwork is mostly deep reds, pinks and metallics, and each of those has a practical catch worth knowing before you approve a file." },
+      {
+        type: "list",
+        items: [
+          "Deep red in CMYK tends to drift brown or orange depending on ink density and stock. If a specific red is your brand, price a spot colour and compare — on a single-colour-dominant design it is often not much more.",
+          "Pinks are the least forgiving colour on uncoated and textured stock, which absorbs ink and lightens them unpredictably.",
+          "Rose gold and copper foils read very differently under warm retail lighting than they do on your screen. Foil is a physical material, not a colour value.",
+          "Red on black, or white type on deep red, is where registration shows. Keep fine type off tight colour boundaries if you can.",
+        ],
+      },
+      { type: "p", text: "All of which is the argument for a printed sample. Ours is $99 for small-format work, which covers most Valentine's SKUs, and it is the only way to approve a red honestly. Details on the [samples page](/samples)." },
+
+      { type: "h2", text: "Quantities for a six-week season" },
+      { type: "p", text: "Seasonal packaging has a hard expiry. A Valentine's box is worth nothing on 15 February, so the usual logic about ordering up to the price break does not apply." },
+      { type: "p", text: "Our minimum is 300 per design, which for most first-time Valentine's runs is the right number — enough for the season, a few press and influencer sends, and some spare for damages, without committing to stock you will be looking at in March. If you sold out last year and know your number, order to that number. If you are guessing, guess low and keep a plain box behind it; our [piece on minimums](/blog/rigid-box-minimums-dallas) covers the trade honestly." },
+
+      { type: "h2", text: "A short December checklist" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Decide the SKU and the quantity this week. Everything else follows from it.",
+          "Decide whether this is a new structure or your existing box with new print. New structure means tooling and a longer runway.",
+          "Get dimensions of the actual product, not the box you imagine around it.",
+          "Brief design before Christmas if you need it — a week of design in late December is a week nobody is working.",
+          "Approve the printed sample, especially the red, rather than approving a PDF.",
+          "Confirm the order. Payment is in full at confirmation, so make sure that is budgeted before the deadline rather than on it.",
+        ],
+      },
+      { type: "p", text: "Send that through the [quote form](/get-a-quote) and we will tell you plainly whether your date is still live." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "When should I order Valentine's Day packaging for 2027?",
+            a: "By early January if your artwork is print-ready, and start in mid-December if you still need design. February 14 falls on a Sunday in 2027, so stock really needs to be in hand by the last week of January.",
+          },
+          {
+            q: "Is it too late to order Valentine's packaging in January?",
+            a: "For a brand new structure with design and a sample round, usually yes. For a reprint of an existing box, or a sleeve or sticker over one, often no — but it becomes a no-revisions, no-sample order and that carries real risk.",
+          },
+          {
+            q: "What is the minimum order for a seasonal box?",
+            a: "300 units per design. Seasonal runs are the main reason we hold the minimum there rather than at the 1,000 that is more common for rigid.",
+          },
+          {
+            q: "Can you match a specific red?",
+            a: "Closely, and more reliably on coated stock than on uncoated or textured. If an exact red matters, order the $99 printed sample and approve the colour physically — screens are not a reliable guide for deep reds.",
+          },
+          {
+            q: "Do you make food-safe packaging for chocolate and bakery?",
+            a: "Yes. We hold food-grade stock and ink certification along with ISO 9001 and FSC chain-of-custody, and we can send the documentation with your quote.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "christmas-packaging-last-minute-dallas",
+    title: "Too Late for Christmas Packaging? What Dallas Brands Can Still Get Made",
+    excerpt:
+      "It is late November. Here is the honest version of what still fits before Christmas, what does not, and what to do instead.",
+    date: "2026-11-23",
+    category: "Seasonal",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Every year in late November we get the same message from Dallas brands: is there any chance of custom boxes before Christmas? The answer is a real yes-or-no rather than a sales one, and it depends almost entirely on whether your artwork exists." },
+      { type: "p", text: "Here is the arithmetic, run from the week this was published." },
+
+      { type: "h2", text: "What the calendar allows" },
+      { type: "p", text: "Production and delivery run 12–15 days door-to-door from final artwork approval. Counting from late November, that puts delivery somewhere in the second week of December — which works, provided nothing sits waiting on a decision." },
+      {
+        type: "table",
+        head: ["Your situation", "Before Christmas?", "What it takes"],
+        rows: [
+          ["Print-ready artwork, simple structure", "Yes", "Approve this week, skip revisions, accept a digital proof instead of a printed sample"],
+          ["Reprint of a box we have already made", "Yes, comfortably", "Tooling exists, so it is production time only"],
+          ["Artwork exists but needs reworking", "Tight", "Depends on how fast you turn around proofs — days matter now, not weeks"],
+          ["No artwork yet", "No", "A week of design plus production puts you past the date. Plan for January"],
+          ["Rigid with foil, emboss and a sample round", "No", "Hand assembly and a sample round do not compress. This is a 6–8 week job"],
+        ],
+      },
+      { type: "p", text: "The row we want to be straight about is the last one. Rigid boxes are built and wrapped by hand, and that labour does not speed up because a deadline is close. Anyone promising you a foiled rigid box with a sample round before Christmas at this point is going to disappoint you in a more expensive way than we are disappointing you now." },
+
+      { type: "h2", text: "What still works at speed" },
+      { type: "p", text: "Plenty, if you are willing to change what you are asking for." },
+      {
+        type: "list",
+        items: [
+          "[Labels and stickers](/products/labels-stickers) over plain stock. The fastest seasonal change there is, and genuinely effective on a kraft mailer.",
+          "Printed sleeves or belly bands around an existing box. New print, no new structure, no new tooling.",
+          "[Folding cartons](/products/folding-carton) in one or two colours. Flat-shipped, machine-made, far quicker than anything hand-assembled.",
+          "[Mailer bags](/products/mailer-bags) with a seasonal print, if you ship D2C and the box is not the gift.",
+          "Printed tissue and a card insert. Cheap, light, and it carries the whole unboxing moment on its own.",
+        ],
+      },
+      { type: "p", text: "The common thread: change the printed surface, not the structure. Structure is what costs time." },
+
+      { type: "h2", text: "What to do about January instead" },
+      { type: "p", text: "The more useful move at this point in the year is to stop chasing Christmas and lock in the next two dates, both of which are still comfortably reachable and both of which usually get decided too late." },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Valentine's Day, 14 February 2027. Design needs to start by around 11 December, so this is a decision for the next fortnight, not for January. We wrote the [full breakdown here](/blog/valentines-day-packaging-dallas).",
+          "The March Gift & Home Market at Dallas Market Center, 16–19 March. Design by 10 January.",
+          "Your core box, reprinted properly. January is the quietest month in packaging and the best time to fix the thing you have been tolerating all year.",
+        ],
+      },
+      { type: "p", text: "The [2027 order calendar](/blog/dallas-packaging-order-calendar-2027) has the dates for everything after that, worked backwards from each occasion." },
+
+      { type: "h2", text: "If you do want to try for Christmas" },
+      { type: "p", text: "Send three things and we will give you a straight answer the same day: product dimensions, quantity, and whatever artwork you have. If it fits, we will tell you what has to be given up to make it fit — usually the sample round and any revision cycle. If it does not, we will say that instead of taking the money." },
+      { type: "p", text: "Worth knowing before you decide: payment is in full at order confirmation, and a rushed order with no printed sample is the one case where we would genuinely rather you waited. A box you are unhappy with, bought at speed, is a worse outcome than plain stock and a good sticker." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "How fast can you make custom boxes?",
+            a: "12–15 days door-to-door from final artwork approval. That clock starts when artwork is approved, not when you first get in touch, so design and sampling sit outside it.",
+          },
+          {
+            q: "Can I get custom packaging before Christmas if I order now?",
+            a: "If your artwork is print-ready and the structure is simple, usually yes. If you still need design, or you want rigid with foil and a printed sample, no — and we would rather tell you that now.",
+          },
+          {
+            q: "What is the fastest way to make packaging look seasonal?",
+            a: "Printed stickers, labels, sleeves or tissue over stock you already have. No tooling, minimal lead time, and on a kraft mailer the effect is better than most people expect.",
+          },
+          {
+            q: "Why can't rigid boxes be rushed?",
+            a: "They are formed from a chipboard core and wrapped largely by hand, and finishes like foil and embossing need their own tooling. None of that compresses the way a flat-printed carton does.",
+          },
+          {
+            q: "When should I order for Valentine's Day?",
+            a: "Start by around 11 December if you need design, and order by early January if your artwork is ready. February 14 is a Sunday in 2027, so stock should be in hand by the last week of January.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "rigid-boxes-dallas",
+    title: "Custom Rigid Boxes in Dallas: Styles, Costs and Lead Times",
+    excerpt:
+      "Rigid boxes sit in their own cost bracket for a reason. Here is what the four closure styles actually cost, how long they take, and when a Dallas brand should pay for one.",
+    date: "2026-11-16",
+    category: "Rigid Boxes",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Rigid boxes are the packaging brands buy when the box is part of the product rather than a container for it. They are also the category where quotes surprise people most, because a rigid box is built rather than folded, and the price reflects that." },
+      { type: "p", text: "This is a practical guide for Dallas and DFW brands pricing rigid packaging for the first time: what the construction actually is, what each closure style costs, how long it takes, and where a local supplier beats us." },
+
+      { type: "h2", text: "What makes a box rigid" },
+      { type: "p", text: "A folding carton is one printed sheet of board, die-cut, creased and shipped flat. A rigid box is not. It starts as a dense chipboard core, typically 1.5–3mm, cut and formed into a shell that does not fold. That shell is then wrapped with a separately printed sheet of paper or specialty stock, and much of that wrapping is done by hand." },
+      { type: "p", text: "Three consequences follow from that, and they explain almost everything about rigid pricing:" },
+      {
+        type: "list",
+        items: [
+          "The box arrives assembled, not flat, so you are shipping air. Freight per unit is higher than any folding carton.",
+          "The labour content is high and does not fall much with volume, because a person is still wrapping each box.",
+          "There are effectively two print jobs in one — the wrap, and often a printed interior or insert.",
+        ],
+      },
+      { type: "p", text: "If your product does not need any of that, our [comparison of folding carton, corrugated and rigid](/blog/folding-carton-vs-corrugated-vs-rigid) is the better place to start. Rigid is a deliberate choice, not an upgrade everyone should make." },
+
+      { type: "h2", text: "The four closure styles" },
+      { type: "p", text: "Closure is the first decision, because it drives both cost and the feel of the box opening. We produce all four as standard." },
+      {
+        type: "table",
+        head: ["Style", "How it opens", "What it suits", "Cost impact"],
+        rows: [
+          ["Two-piece lid and base", "A separate lid lifts off a base tray", "Apparel, kits, corporate gifting", "The baseline rigid cost"],
+          ["Magnetic flip-top", "Front-hinged lid, held shut by hidden magnets", "Beauty, fragrance, electronics, VIP gifting", "Highest — hardware plus extra assembly steps"],
+          ["Drawer or slide", "An inner tray slides out of an outer sleeve", "Jewellery, watches, small premium SKUs", "Above baseline — two built components"],
+          ["Book-fold", "Opens sideways like a hardback cover", "Press kits, subscription boxes, multi-piece sets", "Above baseline — spine construction"],
+        ],
+      },
+      { type: "p", text: "A magnetic box photographs and demos best, which is why most brands ask for it first. It is also the most expensive thing on that list, and on a small SKU the magnets can be a surprising share of the unit cost. Worth pricing both ways before you commit." },
+
+      { type: "h2", text: "What rigid boxes cost" },
+      { type: "p", text: "Across the market, rigid boxes commonly land several times the unit price of a folding carton of the same dimensions. At a few hundred units, most brands see numbers in the single-digit dollars per box, moving up quickly with size, magnets, foil and specialty wrap stock." },
+      { type: "p", text: "Treat that as orientation rather than a quote. The variables that move it most are, in rough order: overall size, closure style, wrap stock, finishes, and whether there is an insert inside. Our [full pricing breakdown](/blog/custom-box-pricing-guide) covers how tooling and setup are spread across a run, and that logic applies here too." },
+      { type: "p", text: "Two rigid-specific cost notes that catch people out. First, size matters more than it does for cartons, because a rigid box cannot be nested or shipped flat — a box an inch larger in every direction costs more to make and noticeably more to freight. Second, the insert is part of the box. A rigid shell with a loose product rattling inside undoes the thing you paid for, so budget for a [box insert](/products/box-inserts) from the start rather than discovering it at sample stage." },
+
+      { type: "h2", text: "Lead times" },
+      { type: "p", text: "Our standard window is 12–15 days door-to-door from final artwork approval, and rigid sits at the longer end of it. Hand assembly and wrapping add days that a folding carton run does not have, and a magnetic or drawer build adds a little more again. Your quote states the actual timing for your spec." },
+      { type: "p", text: "The clock starts at artwork approval, not at your first email. If you do not have print-ready files, add about a week for our [design service](/design-services) — inspiration, mockups, revisions and final artwork — and another few days if you want a printed sample in your hands before the run. A [printed sample is $99](/samples) for small-format rigid, which is most rigid work." },
+      { type: "p", text: "Working backwards from a date is the useful exercise. If you need boxes on a shelf or at Dallas Market Center for a specific show, count back the production window, the sample round and the design time, and you usually find the real deadline is four to six weeks earlier than people assume." },
+
+      { type: "h2", text: "Where a Dallas supplier beats us" },
+      { type: "p", text: "Honestly: more often than our own marketing would suggest, and it is worth being clear about when." },
+      {
+        type: "list",
+        items: [
+          "Urgent reorders. If you need more of an existing box next week, a DFW plant with your die on the shelf will win on speed and you should use one.",
+          "Press checks you want to attend in person. We will send samples and photographs, but we cannot put you next to the press.",
+          "Plain, heavy, cheap packaging. Shipping corrugated across the world to save on the unit price is bad arithmetic. Buy that locally.",
+        ],
+      },
+      { type: "p", text: "Where we win is the opposite case: a hand-built rigid box at a few hundred units, with foiling, embossing and assembly all happening under one roof. We make them in our own facility in Lahore, which is why our minimum is 300 per design rather than the 1,000 most rigid quotes start at, and why a foiled box does not get handed to a third party halfway through." },
+      { type: "p", text: "If you are comparing us against a local shortlist, the [seven questions worth asking any packaging supplier](/blog/choosing-a-packaging-company-dallas) will make the differences between quotes legible." },
+
+      { type: "h2", text: "A short spec checklist" },
+      { type: "p", text: "Everything below changes the number. Decide it, or ask us to price options, before you compare quotes." },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Product dimensions, not box dimensions — let the shell be built around the product with the right clearance.",
+          "Closure style, and whether you want it priced against a cheaper alternative.",
+          "Wrap stock: printed art paper, textured, or specialty.",
+          "Finishes: foil stamping, embossing, soft-touch lamination, spot UV.",
+          "Interior: printed, plain, or an insert — and if an insert, what material.",
+          "Hardware: magnets, ribbon pulls, closures.",
+          "Quantity, plus one quantity above it so you can see the curve.",
+        ],
+      },
+      { type: "p", text: "Send that list and you get a real number. Send a photo of a box you like and you get a guess, which helps nobody. When you are ready, the [quote form](/get-a-quote) collects exactly these fields." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is the minimum order for rigid boxes?",
+            a: "Ours is 300 units per design. Published rigid minimums across the trade more commonly start at 1,000, because the setup and hand-assembly economics push suppliers upward.",
+          },
+          {
+            q: "How much more do rigid boxes cost than folding cartons?",
+            a: "Several times more at the same dimensions, as a rule. The box is built from a thicker core, wrapped by hand, and shipped assembled rather than flat, and each of those adds cost that volume does not remove.",
+          },
+          {
+            q: "How long do rigid boxes take to produce?",
+            a: "Our door-to-door window is 12–15 days from final artwork approval, with rigid at the longer end and magnetic or drawer builds adding a little more. Design and sampling sit before that window, not inside it.",
+          },
+          {
+            q: "Can I get a sample before ordering?",
+            a: "Yes. A printed sample is $99 for small-format rigid, which covers most rigid work. For very large boxes where printing a single unit is not practical, we send a plain paper sample at the same price so you can check the structure.",
+          },
+          {
+            q: "Do you ship rigid boxes to Dallas?",
+            a: "Yes, door-to-door to the USA, UK and Canada through DHL, FedEx and USPS. Freight is included in the quote rather than added at the end, which matters more for rigid than for anything else we make, because assembled boxes take up real volume.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "rigid-boxes-dallas-beauty-brands",
+    title: "Rigid Boxes for Dallas Beauty and Fragrance Brands: Closures, Inserts and Finishes",
+    excerpt:
+      "Beauty is the category where a rigid box earns its cost back. Here is how to spec one that survives shelf, shipping and the camera.",
+    date: "2026-11-14",
+    category: "Beauty & Cosmetics",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Beauty and fragrance are the categories rigid boxes were made for. The product is small, the margin supports the packaging, and the moment the box opens is doing real work on whether someone buys again or films it." },
+      { type: "p", text: "It is also the category where a badly specced rigid box is most obvious. A heavy glass bottle moving inside a beautiful shell reads as cheap, however good the printing is. What follows is how we spec rigid for beauty brands, and the decisions worth making early." },
+
+      { type: "h2", text: "The box has three jobs, not one" },
+      { type: "p", text: "Most briefs we receive describe the first job and skip the other two." },
+      {
+        type: "list",
+        items: [
+          "Shelf: it has to look like it costs what you are charging, under retail lighting, next to competitors.",
+          "Transit: it has to arrive undamaged after a courier has handled it, often as the only layer around glass.",
+          "Camera: it has to photograph well on a phone, in a bathroom, with no styling.",
+        ],
+      },
+      { type: "p", text: "Those pull in different directions. A high-gloss lamination photographs beautifully in a studio and shows every fingerprint on a shelf. A deep matte looks expensive and scuffs in a courier bag. Knowing which job matters most for your channel is the real brief." },
+
+      { type: "h2", text: "Choosing a closure for a beauty SKU" },
+      {
+        type: "table",
+        head: ["SKU type", "Closure that usually fits", "Why"],
+        rows: [
+          ["Single serum or cream", "Two-piece lid and base, or drawer", "Small footprint, low cost per unit, insert does the protection"],
+          ["Fragrance bottle", "Drawer or magnetic", "Weight needs a tight-fitting cavity; the slow reveal suits the category"],
+          ["Gift set or multi-piece kit", "Magnetic flip-top or book-fold", "Opens flat, shows everything at once, photographs as a set"],
+          ["Refill or repeat purchase", "Folding carton, not rigid", "The customer already had the experience once; spend the money elsewhere"],
+        ],
+      },
+      { type: "p", text: "That last row is the one we would rather say early than late. If a customer is buying the same product for the fourth time, a rigid box is not changing their mind, and the money is better spent on the first-purchase box or on the insert." },
+
+      { type: "h2", text: "Inserts are not an accessory" },
+      { type: "p", text: "For beauty, the [insert](/products/box-inserts) is the part of the package doing the protection and most of the perceived quality. It is also the line most brands under-budget." },
+      {
+        type: "list",
+        items: [
+          "Foam, usually EVA, cut to the product silhouette. Holds heavy glass firmly and feels substantial. The default for fragrance.",
+          "Moulded pulp. Recyclable, increasingly expected, and a good match if you are making sustainability claims elsewhere on the pack.",
+          "Folded card platforms. Cheapest, lightest, and fine for lighter plastic or tube products.",
+          "Printed tissue and a card wrap. Not structural, but it controls the order in which things are revealed.",
+        ],
+      },
+      { type: "p", text: "The test to apply at sample stage is simple: close the box, shake it gently, and listen. If you can hear the product move, the insert is wrong, and no amount of foil on the lid will fix the impression that makes." },
+
+      { type: "h2", text: "Finishes that photograph" },
+      { type: "p", text: "Finishes are where beauty budgets go, so it is worth knowing what each one buys you." },
+      {
+        type: "table",
+        head: ["Finish", "What it does", "Worth knowing"],
+        rows: [
+          ["Soft-touch lamination", "Velvet feel, deep flat colour", "Reads as premium in the hand. Shows scuffs on dark colours"],
+          ["Foil stamping", "Metallic logo or type with real shine", "Needs its own die. Small, high-contrast areas work best"],
+          ["Embossing or debossing", "Raised or recessed texture", "Separate tooling again. Pairs well with foil on the same mark"],
+          ["Spot UV", "Gloss pattern over a matte base", "Nearly invisible straight-on, striking at an angle. Cheap theatre, used well"],
+        ],
+      },
+      { type: "p", text: "A pattern worth copying: one restrained metallic mark on a deep uncoated or soft-touch wrap. It costs less than covering the box in effects and it photographs better, because a phone camera needs one thing to catch the light rather than six." },
+
+      { type: "h2", text: "Three things to get right before artwork" },
+      { type: "p", text: "These are the revisions we see most often, and all three are cheaper to fix before the die is cut." },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Leave room for required text. Ingredient lists, net contents, responsible-person details and batch codes all have to live somewhere, and a layout designed without space for them gets compromised late. Check your own regulatory requirements for the markets you sell into, and reserve the panel early.",
+          "Decide where the batch code goes and how it is applied — printed, stickered or inkjetted. A sticker over a soft-touch lid is a visible afterthought.",
+          "Check the colour on a sample, not a screen. Deep blacks, brand-specific pastels and anything metallic behave differently on wrap stock than they do on a monitor. This is what the $99 [printed sample](/samples) is for.",
+        ],
+      },
+
+      { type: "h2", text: "Minimums and launch volume" },
+      { type: "p", text: "A new beauty brand rarely wants 1,000 rigid boxes of a SKU that has not sold yet, and that is the usual reason rigid gets dropped from a launch plan. Our minimum is 300 per design, made in our own facility, which is normally enough to cover a launch, a press mailing and a show without committing a year of stock to a design nobody has bought." },
+      { type: "p", text: "Per unit, 300 costs more than 1,000 — that curve is steep at the bottom and we are not going to pretend otherwise. What it buys you is the option to change the box after you have seen what sells. For most first runs that is the better trade." },
+      { type: "p", text: "If you are planning a launch around a Dallas Market Center show or a retail reset, work backwards: production, then a sample round, then roughly a week of [design](/design-services) if you do not have final artwork. Our [process page](/our-process) sets out each stage and what we need from you at it." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Are rigid boxes safe for cosmetics?",
+            a: "The box is secondary packaging, so it sits outside the product container and the compatibility questions that apply to primary packaging do not apply to it. We hold food-grade stock and ink certification and FSC chain-of-custody, and we will send the documentation with a quote if you need it for a retailer.",
+          },
+          {
+            q: "What closure is best for a fragrance box?",
+            a: "A drawer or a magnetic flip-top, with a cavity insert cut to the bottle. Both give a slow, controlled reveal, and both hold weight in a way a lift-off lid does not once a courier has had it.",
+          },
+          {
+            q: "Can you match my brand colour exactly?",
+            a: "Close, and closer on coated wrap than on textured or uncoated stock, where the surface absorbs ink differently. If an exact match matters, order the printed sample and approve the colour physically rather than on screen.",
+          },
+          {
+            q: "Do you make the insert as well as the box?",
+            a: "Yes. Printing, lamination, foiling, die-cutting, gluing and assembly all happen in our own facility, inserts included, so there is no handoff in the middle of your job.",
+          },
+          {
+            q: "How many rigid boxes should a new beauty brand order?",
+            a: "Enough for the launch, a press mailing and whatever samples you give away — for most brands that is a few hundred rather than a thousand. Our 300-unit minimum exists so that first number does not have to be a gamble.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "rigid-box-minimums-dallas",
+    title: "Quoted 1,000 Rigid Boxes? How Dallas Brands Order 300 Instead",
+    excerpt:
+      "High rigid minimums are not arbitrary — they protect the supplier from the hand labour. Here is what actually changes at 300 units, and when 1,000 is the right call anyway.",
+    date: "2026-11-12",
+    category: "Buying Guide",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "A brand asks four rigid box suppliers for 300 units. Three come back with a 1,000-unit minimum and one ignores the question. This happens constantly, and it is the single most common reason a launch ends up in a folding carton instead." },
+      { type: "p", text: "The minimum is not a negotiating tactic. It is arithmetic about hand labour. Understanding which part of it is real tells you what to ask for, and when to stop pushing and just order the thousand." },
+
+      { type: "h2", text: "Why rigid minimums start so high" },
+      { type: "p", text: "Three fixed costs sit at the front of every rigid job, and a fourth cost that is not fixed at all — which is the part people miss." },
+      {
+        type: "list",
+        items: [
+          "Tooling: a cutting die for the shell and the wrap, plus separate dies for any foil or emboss.",
+          "Plates: one per colour on the wrap print, unless the job runs digitally.",
+          "Setup: the time to make ready, which is the same whether you run 300 boxes or 3,000.",
+          "Assembly labour: a person forming and wrapping each box. This does not get cheaper with volume, and on a short run it is the dominant cost.",
+        ],
+      },
+      { type: "p", text: "That fourth line is why rigid behaves differently from every other packaging category. On a folding carton, volume spreads the fixed costs and the per-unit price collapses. On rigid, volume spreads the tooling but the hands are still there on box 3,000, so the curve flattens earlier and sits higher." },
+      { type: "p", text: "A supplier set up for 10,000-unit runs genuinely loses money making you 300. The minimum is them saying so politely." },
+
+      { type: "h2", text: "What the 1,000-unit quote is protecting" },
+      { type: "p", text: "Worth separating two different suppliers who both quote you a minimum of 1,000." },
+      {
+        type: "table",
+        head: ["Supplier type", "Why the minimum is 1,000", "What to do"],
+        rows: [
+          ["A broker reselling a factory's capacity", "They are passing on the factory's minimum, plus a margin, and cannot move it", "Ask who manufactures it. If they will not say, you have your answer"],
+          ["A large plant optimised for long runs", "Their changeover cost is real and short runs block a line", "Believe them. Do not try to negotiate it down"],
+          ["A factory with its own assembly team", "It may not be 1,000 at all — ask for it per design", "Ask directly for 300, and for the unit price at both quantities"],
+        ],
+      },
+      { type: "p", text: "The per-design detail matters as much as the number. A 1,000-unit minimum across an order is a different proposition from 1,000 per design when you are launching three sizes, which is the situation that quietly kills most small rigid projects." },
+
+      { type: "h2", text: "What actually changes at 300" },
+      { type: "p", text: "We make rigid boxes to a 300-unit minimum per design in our own facility, so this is the honest version of that trade rather than a pitch." },
+      {
+        type: "table",
+        head: ["At 300 units", "At 1,000 units"],
+        rows: [
+          ["Higher unit price — tooling and setup spread across a third of the boxes", "Lower unit price, and the biggest single drop you will see on the curve"],
+          ["Less cash at risk, and freight on a smaller consignment", "More cash committed, and warehouse space to find"],
+          ["You can change the box after seeing what sells", "You are living with this design for a year or more"],
+          ["Enough for a launch, a press mailing and a show", "Enough to supply retail reorders without a second run"],
+        ],
+      },
+      { type: "p", text: "Per box, 1,000 is cheaper and often by a lot. In total, obviously not. The right question is not which is cheaper but how confident you are in the design — and whether you would rather find out at 300 units or 1,000." },
+
+      { type: "h2", text: "Five ways to make a short rigid run work" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Share tooling across sizes. One shell dimension with different printed wraps costs far less than three dies. If your range can live in one box size, it should.",
+          "Put the budget on one finish, not four. A single foil mark on a plain wrap outperforms a box carrying foil, emboss, spot UV and soft-touch, and costs a fraction.",
+          "Price your brand colour in CMYK before committing to a spot Pantone. On a wrap, the difference is often smaller than the plate cost.",
+          "Spend on the insert before the exterior. It does the protection and most of the perceived quality, and it is cheaper than another finish.",
+          "Ask for the price at 300 and at 500 in the same quote. Sometimes the step is small enough to be worth taking, and you cannot know without seeing both.",
+        ],
+      },
+      { type: "p", text: "What we would not recommend is shaving a dimension to chase a lower price on a rigid box the way you would on a folding carton. On a carton, sheet yield rewards that. On rigid, you mostly end up with a box that fits the product badly." },
+
+      { type: "h2", text: "When you should just order 1,000" },
+      { type: "p", text: "Three cases, and in all of them a short run is false economy." },
+      {
+        type: "list",
+        items: [
+          "The design is settled and the product sells. You already know. Order the volume and take the unit price.",
+          "You have retail committed. Running out of packaging mid-programme costs more than the stock would have.",
+          "The box is plain enough that tooling dominates the quote. If there are no finishes to economise on, quantity is the only lever you have.",
+        ],
+      },
+      { type: "p", text: "And one case where neither answer is right: if you need a few hundred plain shippers in Dallas next week, buy them from a DFW plant. Rigid is for the box the customer keeps. Our [guide to the three box families](/blog/folding-carton-vs-corrugated-vs-rigid) covers where each one earns its place." },
+
+      { type: "h2", text: "How to get a number you can act on" },
+      { type: "p", text: "We quote accurately once the design is finalised, and vaguely before it, because the structure determines the build and the build determines most of the cost. To get a real number, send product dimensions, closure style, wrap stock, finishes, whether there is an insert, and two quantities." },
+      { type: "p", text: "If there is no artwork yet, our [design service](/design-services) takes about a week through inspiration, mockups, revisions and final files, and the quote that follows is a real one. A $99 [printed sample](/samples) comes before the run, not after it. Payment is in full at order confirmation, which is worth knowing before you plan cash flow around a launch date." },
+      { type: "p", text: "The [quote form](/get-a-quote) asks for exactly those fields, and if you are still shortlisting suppliers, the [seven questions worth asking all of them](/blog/choosing-a-packaging-company-dallas) will make the answers comparable." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Can I order 100 rigid boxes?",
+            a: "Not from us — our minimum is 300 per design, and below that the setup and assembly cost per box stops making sense for either side. Some digital-first suppliers advertise lower, usually with a limited range of stock sizes and finishes.",
+          },
+          {
+            q: "Why is the rigid minimum higher than for folding cartons?",
+            a: "Because the labour does not scale away. A rigid box is formed and wrapped largely by hand, so a short run is expensive per box in a way a folding carton run is not, and most suppliers set minimums high enough to cover that.",
+          },
+          {
+            q: "Is the minimum per order or per design?",
+            a: "Ours is per design. Ask every supplier this specifically — a 1,000-unit minimum per design is a very different number from 1,000 across an order when you are launching several sizes.",
+          },
+          {
+            q: "How much cheaper is 1,000 than 300?",
+            a: "Meaningfully, and the drop between those two quantities is the steepest part of the curve. We will price both in the same quote so you can see the actual step for your spec rather than a rule of thumb.",
+          },
+          {
+            q: "Does the tooling have to be paid again on a reorder?",
+            a: "No. Tooling is a one-time cost, so a reorder of an unchanged design does not pay for the dies or plates a second time. That is part of why the second run of a box is usually the cheapest one you will buy.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "custom-box-pricing-guide",
+    title: "How Much Do Custom Boxes Cost? A Pricing Guide for 300–1,000 Unit Orders",
+    excerpt:
+      "Instant-quote tools give you a number without telling you where it came from. Here is what actually sets the price of a custom printed box, and which parts of it you can move.",
+    date: "2026-11-05",
+    category: "Pricing",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "There is no single price for a custom box, and any site that gives you one without asking about your board, your dimensions and your colour count is quoting a different box than the one you have in mind." },
+      { type: "p", text: "What follows is the actual cost structure — the six variables every quote is built from, why the per-unit price falls so sharply between 300 and 1,000 units, and the levers you can pull to bring a number down without ending up with a worse box." },
+
+      { type: "h2", text: "The short answer" },
+      { type: "p", text: "Across the market, a basic one-colour flexo print on a standard corrugated shipper typically runs $0.80–$2.50 per unit at 1,000–5,000 units. Full-colour printed retail cartons with finishes sit well above that. Small runs sit above that again, because the same fixed costs are divided across fewer boxes." },
+      { type: "p", text: "Most custom box buyers land somewhere between $1 and $6 a unit, plus $100–$500 in one-time setup. Rigid boxes are their own category and routinely run several times a folding carton of the same size, because they are hand-assembled and wrapped." },
+      { type: "p", text: "Use those as orientation, not as your quote. The spread exists because of the six variables below." },
+
+      { type: "h2", text: "The six variables behind every quote" },
+      {
+        type: "table",
+        head: ["Variable", "What it changes", "How much it moves the price"],
+        rows: [
+          ["Board stock and weight", "250gsm (14pt) up to 450gsm (22pt); kraft or coated white", "Moderate. Heavier board costs more per sheet and more to ship. Kraft is cheaper than bleached white"],
+          ["Box dimensions", "How many boxes are cut from one parent sheet", "Large. The single biggest lever most buyers never touch"],
+          ["Print colours", "CMYK process vs spot Pantone inks", "Moderate. Each spot colour is another plate and another pass"],
+          ["Finishes", "Lamination, foil, spot UV, embossing, debossing", "Large. Each is a separate pass, and foil and emboss need their own tooling"],
+          ["Structure", "Folding carton, corrugated mailer, rigid box, insert", "Very large. Rigid is in a different bracket entirely"],
+          ["Quantity", "How far the die and setup are spread", "Very large between 300 and 1,000, then it flattens"],
+        ],
+      },
+
+      { type: "h2", text: "Why sheet yield matters more than you think" },
+      { type: "p", text: "Your boxes are not printed one at a time. They are laid out on a large parent sheet, printed, then die-cut out of it. The question that sets a big part of your cost is how many of your boxes fit on one sheet." },
+      { type: "p", text: "Get the dimensions slightly wrong and you waste a strip of board on every sheet, on every sheet of the run. Trim half an inch off a dimension and you can sometimes fit another box per sheet, which cuts the board cost of the whole job." },
+      { type: "p", text: "This is why we ask for your product dimensions rather than your intended box dimensions. If there is a quarter-inch of slack to play with, we would rather find it before the die is cut than after." },
+
+      { type: "h2", text: "Tooling: the one-time costs" },
+      { type: "p", text: "Two fixed costs sit at the front of every custom job, and they are the reason minimums exist at all." },
+      {
+        type: "list",
+        items: [
+          "The cutting die — a steel rule die made for your specific box shape. One per design. A standard shape may already exist; a custom shape does not.",
+          "Printing plates — one per colour for offset and flexo work. Four-colour CMYK means four plates. Add a spot Pantone and that is a fifth.",
+          "Foil and embossing dies — separate again, if you are using those finishes.",
+        ],
+      },
+      { type: "p", text: "Digital printing skips the plates, which is exactly why the suppliers advertising the lowest minimums are usually digital. It does not skip the cutting die." },
+
+      { type: "h2", text: "Why 300 units costs more per box than 1,000" },
+      { type: "p", text: "Because the die and the setup do not get cheaper when you order fewer boxes. Divide a $300 tooling and setup bill across 300 boxes and it adds a dollar to each one. Divide the same bill across 1,000 and it adds thirty cents." },
+      { type: "p", text: "That curve is steep at the bottom and flat at the top. Going from 300 to 1,000 usually makes a real difference to your unit price. Going from 5,000 to 6,000 usually does not." },
+      { type: "p", text: "Which is to say: a low minimum is not a cheap way to buy boxes. It is a way to launch a product without gambling a year of inventory on a design nobody has bought yet. Those are different things, and it is worth being clear with yourself about which one you are doing." },
+
+      { type: "h2", text: "Seven ways to bring the number down" },
+      {
+        type: "list",
+        ordered: true,
+        items: [
+          "Send product dimensions, not box dimensions, and let the dieline be optimised for sheet yield.",
+          "Check whether a near-standard size works before committing to a fully custom one.",
+          "Ask whether your brand colour can be built in CMYK instead of run as a spot Pantone.",
+          "Put the expensive finish on the box the customer keeps, not the one they throw away.",
+          "Use kraft instead of bleached white where the look allows — cheaper and often better for food and natural brands.",
+          "Print one side instead of two if the interior is never seen.",
+          "Get a second quantity priced alongside your first, so you can see the curve before you decide.",
+        ],
+      },
+
+      { type: "h2", text: "What stops a quote being accurate" },
+      { type: "p", text: "We quote accurately once the design is finalised, and vaguely before that — not to be difficult, but because the dieline determines the sheet yield, and the sheet yield determines a large share of the cost. A number given before the structure is fixed is a guess dressed up as a quote." },
+      { type: "p", text: "If you do not have artwork yet, that is fine. Our [design service](/design-services) covers inspiration, mockups, revisions and final print files in about a week, and the quote that follows is a real one." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is the cheapest type of custom box?",
+            a: "A single-colour print on kraft corrugated, in a near-standard size, with no finishes. Every step away from that — white board, more colours, lamination, a custom structure — adds cost in a fairly predictable way.",
+          },
+          {
+            q: "How much does the tooling cost?",
+            a: "Setup and tooling commonly fall in the $100–$500 range across the industry, depending on the structure and the number of colours. It is a one-time cost, so reorders of an unchanged design do not pay it again.",
+          },
+          {
+            q: "Is it cheaper to order 1,000 boxes than 300?",
+            a: "Per box, almost always yes, and often by a lot. In total, obviously not. The right question is whether you are confident enough in the design to hold the extra stock.",
+          },
+          {
+            q: "Why do rigid boxes cost so much more?",
+            a: "They are built rather than folded. Greyboard is cut, formed and then wrapped with a printed sheet, much of it by hand. The material is heavier and the labour is higher, so a rigid box routinely costs several times a folding carton of the same dimensions.",
+          },
+          {
+            q: "Does the price include shipping?",
+            a: "Our quotes are door-to-door, so freight is accounted for rather than added as a surprise at the end. Your quote states exactly what is included.",
+          },
+          {
+            q: "Can I get a sample before paying for a full run?",
+            a: "Yes. A fully printed sample in your artwork and stock is $99, and for larger boxes a plain unprinted structural sample is also $99. See [samples](/samples).",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "choosing-a-packaging-company-dallas",
+    title: "Choosing a Packaging Company in Dallas: 7 Questions to Ask Before You Order",
+    excerpt:
+      "Every packaging supplier says fast turnaround and great quality. These seven questions get you answers you can actually compare.",
+    date: "2026-11-04",
+    category: "Buying Guide",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Packaging suppliers are hard to compare because they all claim the same things. Fast turnaround. Premium quality. Competitive pricing. None of it is falsifiable, so none of it helps you choose." },
+      { type: "p", text: "These seven questions have answers that differ between suppliers, which makes them useful. Ask all seven of everyone on your shortlist, us included, and the differences will be obvious." },
+
+      { type: "h2", text: "1. What is your minimum, and is it per design or per order?" },
+      { type: "p", text: "This is the question that eliminates most suppliers fastest, and the per-design detail matters more than the headline number. A 500-unit minimum across an order is very different from 500 per design when you need three sizes." },
+      { type: "p", text: "For reference, published minimums across the trade commonly sit at 500 for corrugated and 1,000 for printed folding cartons. Ours is 300 per design." },
+
+      { type: "h2", text: "2. When does the clock start on your quoted turnaround?" },
+      { type: "p", text: "Almost every supplier quotes turnaround from final artwork approval, not from your first email. If you have not asked, you may be budgeting a week less than you need." },
+      { type: "p", text: "Ask what the quoted window actually covers: production only, or production plus freight and delivery. A production-only number with freight quoted separately is not comparable to a door-to-door one." },
+
+      { type: "h2", text: "3. What does your proofing process look like, and what does a sample cost?" },
+      { type: "p", text: "There is a real difference between a digital proof, a plain structural sample and a fully printed production-identical sample. A supplier that only offers the first is asking you to approve colour on a screen." },
+      { type: "p", text: "Ask the price, ask what it includes, and ask how long it adds. Ours are $99 either way — printed for small-format boxes, plain paper for large ones, where printing a single unit is not practical." },
+
+      { type: "h2", text: "4. Which steps happen under your own roof?" },
+      { type: "p", text: "A lot of packaging companies are brokers. That is not automatically bad, but it changes who you talk to when something goes wrong, and it usually adds days and a margin." },
+      { type: "p", text: "Ask specifically about printing, lamination, foiling, die-cutting, gluing and assembly. If foiling is subcontracted, your foiled box has a handoff in the middle of it." },
+
+      { type: "h2", text: "5. Can you design the packaging, or only print what I send?" },
+      { type: "p", text: "Most brands do not arrive with a production-ready dieline. If the supplier only prints, you need a packaging designer as well, and you own the gap between them when the artwork does not fit the die." },
+      { type: "p", text: "Ask whether design is included, what it costs, and how long it takes. Ours runs about a week through inspiration, mockups, revisions and final artwork." },
+
+      { type: "h2", text: "6. What certifications do you hold, and can I see the documentation?" },
+      { type: "p", text: "The second half of that question is the real one. Certifications get claimed loosely; documentation gets produced or it does not." },
+      {
+        type: "list",
+        items: [
+          "ISO 9001 — a quality management system, audited rather than self-declared.",
+          "FSC chain-of-custody — the paper fibre is traceable to responsibly managed forest, which matters if you want to make the claim on-pack.",
+          "Food-grade stock and inks — essential if the box touches food, and not something to discover late.",
+        ],
+      },
+      { type: "p", text: "We hold all three and will send the documentation with a quote if you ask." },
+
+      { type: "h2", text: "7. What are your payment terms, and what happens if the run is wrong?" },
+      { type: "p", text: "Terms vary widely — deposits, net terms, full payment upfront. Ours is full payment at order confirmation, which is worth knowing before you plan cash flow around a launch." },
+      { type: "p", text: "The second half matters more. Ask what the remedy is if a run arrives off-spec, who pays to put it right, and how long that takes. A supplier who answers that clearly has thought about it before." },
+
+      { type: "h2", text: "A scoring sheet you can actually fill in" },
+      {
+        type: "table",
+        head: ["Question", "What a strong answer looks like", "What should worry you"],
+        rows: [
+          ["Minimum", "A specific number, stated per design", "It depends, or a number that moves when you push"],
+          ["Turnaround", "A window, with a stated start point and what it covers", "Fast, or a production number with freight unmentioned"],
+          ["Proofing", "Named options with prices and added days", "Digital proof only"],
+          ["In-house steps", "A list, with any subcontracting named", "Vagueness about the factory"],
+          ["Design", "Included or priced, with a timeline", "Send us print-ready files"],
+          ["Certifications", "Named, with documentation offered", "Claimed, with nothing to show"],
+          ["If it goes wrong", "A stated remedy", "Case by case"],
+        ],
+      },
+      { type: "p", text: "One honest note on local versus remote. If you need 5,000 plain brown shippers in Dallas next week, a local DFW plant will beat anyone shipping to you, and you should use one. The questions above matter most when the box has to do real work, or when the minimum is what is standing in your way." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Do I need a packaging company based in Dallas?",
+            a: "Not usually. Local matters for urgent plain shippers and for press checks you want to attend in person. For custom printed packaging at a few hundred units, the minimum and the proofing process matter far more than the distance.",
+          },
+          {
+            q: "How do I check a packaging supplier is legitimate?",
+            a: "Ask for the certification documentation rather than the claim, order a paid sample before a production run, and ask which steps happen in their own facility. A supplier that answers all three plainly is usually fine.",
+          },
+          {
+            q: "Should I get multiple quotes?",
+            a: "Yes, but make them comparable first. Give every supplier the same dimensions, board, colour count, finishes and quantity. Quotes built on different assumptions are not a comparison.",
+          },
+          {
+            q: "What is the single most useful question?",
+            a: "When does the clock start on your turnaround. It is the one where suppliers quietly differ by a week or more, and almost nobody asks.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "food-and-bakery-packaging-dallas",
+    title: "Custom Food & Bakery Packaging for Dallas Food Brands: Boxes, Pouches and Labels",
+    excerpt:
+      "Food packaging has rules the rest of packaging does not. Here is what Dallas food and bakery brands need to get right on stock, grease, labelling and minimums.",
+    date: "2026-11-03",
+    category: "Food & Beverage",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Dallas has a deep food and beverage scene — early-stage brands, established processors, and the brokers and distributors that help them scale. What it does not have much of is a supplier willing to print a few hundred food-safe boxes for a brand that is still finding its market." },
+      { type: "p", text: "Food packaging also carries constraints the rest of packaging does not. Grease, moisture, direct contact, and a set of material questions you need to answer before the die is cut rather than after." },
+
+      { type: "h2", text: "Food-grade is a specification, not a claim" },
+      { type: "p", text: "If your packaging touches food, the stock and the inks both have to be rated for it. This changes the board you can use and the inks that can be printed on the contact side, and it is not something to raise after artwork is approved." },
+      { type: "p", text: "Tell your supplier at quote stage. Direct contact, indirect contact through a liner or wrapper, and no contact at all are three different specifications at three different prices." },
+
+      { type: "h2", text: "Grease and moisture are the two failure modes" },
+      { type: "p", text: "Most food packaging that fails in the field fails for one of two reasons, and both are predictable." },
+      {
+        type: "list",
+        items: [
+          "Grease strike-through — oil migrating into the board and darkening the print. Pastries, fried items and anything buttery. A grease-resistant liner or coating solves it; plain uncoated kraft does not.",
+          "Moisture and steam — a warm product sealed in a tight box turns crisp into soggy. Vented structures and the right board weight matter more than the print does.",
+        ],
+      },
+      { type: "p", text: "Both are worth testing on a sample with your real product in it, warm, for as long as it would sit before a customer opens it. A sample that looked fine empty on a desk tells you very little." },
+
+      { type: "h2", text: "What suits what" },
+      {
+        type: "table",
+        head: ["Product", "Usual format", "Watch out for"],
+        rows: [
+          ["Cookies, pastries, bakery", "[Folding carton](/products/folding-carton) with a window or vent", "Grease resistance; a window film that fogs"],
+          ["Cakes and larger bakery", "[Corrugated](/products/corrugated) for rigidity, with an insert", "Board weight under load; base sag"],
+          ["Chocolate and confectionery", "Folding carton, often with a [box insert](/products/box-inserts)", "Heat; scuffing in transit"],
+          ["Coffee, granola, dry snacks", "[Pouches](/products/pouches) with a label, or a carton", "Pouch minimums are high — see below"],
+          ["Gift and hamper sets", "[Rigid](/products/rigid) box with a fitted insert", "Cost per unit; assembly time"],
+          ["Jars, bottles, retail jars", "[Labels and stickers](/products/labels-stickers)", "Adhesive on cold or wet surfaces"],
+          ["Farmers market and takeaway", "Corrugated or [paper shopping bags](/products/paper-shopping-bags)", "Handle strength when loaded"],
+        ],
+      },
+
+      { type: "h2", text: "The pouch problem, stated honestly" },
+      { type: "p", text: "Flexible packaging is the one place where low minimums mostly do not exist. Stand-up pouches, kraft pouches and similar formats carry minimums around 10,000 units across the industry, because the tooling is printed film cylinders rather than a steel die." },
+      { type: "p", text: "If you are launching a coffee or granola line at a few hundred units, the usual route is a stock pouch with a custom printed [label](/products/labels-stickers) on it. It looks better than people expect, the minimum is reachable, and you can switch to printed film once volume justifies it." },
+      { type: "p", text: "Anyone promising you 300 fully printed custom pouches is either doing something unusual or quoting you something other than what you asked for." },
+
+      { type: "h2", text: "Labelling is your responsibility, not ours" },
+      { type: "p", text: "We print what you supply. What has to appear on a food label — ingredients, allergens, net weight, nutrition, the responsible business name and address — is set by federal and state rules, and it is on you or your food-safety consultant to get right." },
+      { type: "p", text: "Worth knowing before you commit to a run: label requirements are the most common reason a food brand reprints. Get the artwork reviewed by someone who knows the rules before the plates are made, not after 300 boxes arrive." },
+
+      { type: "h2", text: "Texas sales tax, briefly" },
+      { type: "p", text: "Packaging is specifically excluded from the Texas resale exemption, with a narrow carve-out for manufacturers and processors packaging the product they themselves make. A Dallas food producer boxing its own product sits differently from a retailer buying branded shippers. Ask your CPA where your business falls — we are a manufacturer, not an accountant." },
+
+      { type: "h2", text: "Starting small" },
+      { type: "p", text: "Our minimum is 300 per design, which is low enough to put a real printed box on a market stall or a first retail shelf without committing to a pallet. Printing, lamination, foiling, die-cutting, gluing and assembly all happen in our own facility, which is what makes a run that size workable." },
+      { type: "p", text: "We hold food-grade stock and ink certification alongside ISO 9001 and FSC chain-of-custody, and will send the documentation with your quote." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is the minimum for custom bakery boxes?",
+            a: "300 per design with us. Across the trade, 500 for corrugated and 1,000 for printed folding cartons are the common published floors.",
+          },
+          {
+            q: "Is kraft board food safe?",
+            a: "Only if it is specified as food-grade. Kraft is a look and a material family, not a food-contact rating. Ask for the stock specification rather than assuming.",
+          },
+          {
+            q: "Can you do grease-resistant boxes?",
+            a: "Yes, through a grease-resistant liner or coating. Tell us what the product is at quote stage, because the right answer for a croissant is not the right answer for a cupcake.",
+          },
+          {
+            q: "Why can't I order 300 custom printed pouches?",
+            a: "Pouch tooling is printed film cylinders, which only make economic sense over long runs — roughly 10,000 units industry-wide. A stock pouch with a custom printed label is the usual way to launch below that.",
+          },
+          {
+            q: "Do you print the nutrition panel?",
+            a: "We print the artwork you supply, panel included. What that panel has to say is governed by food labelling law, and getting it right is yours or your consultant's call, not ours.",
+          },
+          {
+            q: "How long until I have boxes?",
+            a: "12–15 days door-to-door from final artwork approval. Add about a week if you need us to design the packaging first, and add the sample round if you want to see one before committing.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "folding-carton-vs-corrugated-vs-rigid",
+    title: "Folding Carton vs Corrugated vs Rigid Boxes: Which Does Your Brand Need?",
+    excerpt:
+      "Three box families, three very different cost brackets. A plain-language guide to which one your product actually needs.",
+    date: "2026-11-02",
+    category: "Guides",
+    author: "Be Happy Packaging Team",
+    body: [
+      { type: "p", text: "Most packaging decisions come down to picking one of three structures. Get it right and everything downstream — cost, protection, how the box photographs — falls into place. Get it wrong and you are paying rigid-box money for something that gets thrown away on opening." },
+      { type: "p", text: "Here is what each one is, what it costs relative to the others, and the question that usually decides it." },
+
+      { type: "h2", text: "The quick comparison" },
+      {
+        type: "table",
+        head: ["", "Folding carton", "Corrugated", "Rigid"],
+        rows: [
+          ["Material", "Single-layer paperboard, 250–450gsm", "Fluted board between two liners", "Thick greyboard wrapped in printed paper"],
+          ["Ships flat", "Yes", "Yes", "No — usually ships assembled"],
+          ["Relative cost", "Lowest", "Low to moderate", "Highest, by a wide margin"],
+          ["Protection", "Light", "Strong", "Strong, but heavy"],
+          ["Print quality", "Excellent", "Good; flute can show through", "Excellent"],
+          ["Typical use", "Retail shelf packaging", "Shipping and e-commerce", "Luxury, gifting, unboxing"],
+        ],
+      },
+
+      { type: "h2", text: "Folding cartons" },
+      { type: "p", text: "A [folding carton](/products/folding-carton) is a single sheet of paperboard, printed flat, die-cut, creased and glued. It arrives flat and you fold it into shape. This is the box most retail products sit in — cosmetics, supplements, confectionery, small electronics." },
+      { type: "p", text: "It takes print beautifully, because you are printing on a smooth flat sheet before anything is folded. It is the cheapest of the three. What it does not do is protect anything much: a folding carton is a presentation layer, not a shipping container." },
+      { type: "p", text: "Choose it when the product sits on a shelf or inside another box, and when how it looks matters more than what it survives." },
+
+      { type: "h2", text: "Corrugated" },
+      { type: "p", text: "[Corrugated](/products/corrugated) has a fluted middle layer sandwiched between flat liners. That fluting is what gives it stacking strength and impact resistance, and it is why almost everything that moves through a shipping network moves in it." },
+      { type: "p", text: "Print is good but not flawless — the flute can telegraph slightly through the liner, and very fine detail or large flat areas of solid colour are less forgiving than on a folding carton. For most e-commerce mailers this is a non-issue." },
+      { type: "p", text: "Choose it when the box is doing the shipping. If your customer receives the box from a courier, this is almost certainly your answer." },
+
+      { type: "h2", text: "Rigid boxes" },
+      { type: "p", text: "A [rigid box](/products/rigid) is built rather than folded — thick greyboard cut and formed into a permanent shape, then wrapped with a separately printed sheet. Think phone boxes, watch boxes, premium gift sets." },
+      { type: "p", text: "Much of that construction is done by hand, which is why a rigid box routinely costs several times a folding carton of the same dimensions. It also does not ship flat, so you pay to store and freight air." },
+      { type: "p", text: "Choose it when the box is part of the product — when the customer keeps it, when the opening moment is the point, or when the price of what is inside makes the packaging cost irrelevant." },
+
+      { type: "h2", text: "The question that usually decides it" },
+      { type: "p", text: "Ask what happens to the box thirty seconds after it is opened." },
+      {
+        type: "list",
+        items: [
+          "Straight into recycling, and it travelled by courier → corrugated.",
+          "Straight into recycling, but it sat on a shelf first → folding carton.",
+          "Kept, reused, or photographed → rigid.",
+        ],
+      },
+      { type: "p", text: "That one question resolves most cases. Where it does not, the usual answer is that you need two: a printed folding carton for the retail unit, inside a plain corrugated shipper for transit." },
+
+      { type: "h2", text: "What else goes in the box" },
+      { type: "p", text: "Whichever structure you pick, a few things tend to come with it. [Box inserts](/products/box-inserts) hold the product in place and control what the customer sees first. [Labels and stickers](/products/labels-stickers) handle variable information — batch codes, flavours, sizes — without reprinting the box. And [eco-friendly options](/products/eco-friendly-packaging) exist across all three families, though laminated finishes complicate recyclability wherever they are used." },
+      { type: "p", text: "Not sure which way to go? Send us the product dimensions and what it has to survive, and we will tell you which structure we would quote and why. Or start with a [sample](/samples) — $99, in your artwork, before you commit to anything." },
+
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is the difference between cardboard and corrugated?",
+            a: "In the trade, cardboard usually means paperboard — a single solid layer, used for folding cartons. Corrugated is the fluted sandwich used for shipping boxes. People use cardboard loosely for both, which is why suppliers ask you to be specific.",
+          },
+          {
+            q: "Can I print photos on a corrugated box?",
+            a: "Yes, and quality has improved a lot. Be aware the flute can show through slightly on large flat areas of solid colour. If the print is the whole point and the box is not shipping, a folding carton will look better.",
+          },
+          {
+            q: "Why are rigid boxes so expensive?",
+            a: "Thicker material, more of it, and a lot of hand assembly. They also ship assembled rather than flat, which costs more to freight and store.",
+          },
+          {
+            q: "Which is the most sustainable?",
+            a: "Corrugated and uncoated paperboard are both widely accepted in curbside recycling. Rigid boxes are harder to recycle because they combine materials. In practice the finish matters as much as the structure — a laminated box of any type is harder to recycle than an unlaminated one.",
+          },
+          {
+            q: "What is the minimum for each?",
+            a: "300 per design for all three with us. Across the trade, published floors are commonly 500 for corrugated and rigid and 1,000 for printed folding cartons.",
+          },
+          {
+            q: "Can I mix structures in one order to reach the minimum?",
+            a: "No — the minimum is per design, because each design needs its own die and setup. Three structures means three runs of 300.",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "packaging-trends-to-watch",
+    title: "5 Custom Packaging Trends Worth Watching This Year",
+    excerpt:
+      "From tactile finishes to right-sized dielines, here's what's actually moving the needle for brands ordering custom packaging right now.",
+    date: "2026-06-12",
+    category: "Trends",
+    author: "Be Happy Packaging Team",
+    body: [
+      "Custom packaging has moved well past 'put a logo on a box.' Brands are increasingly treating packaging as a core part of the product experience, not an afterthought bolted on after manufacturing is locked in.",
+      "Tactile finishes — soft-touch lamination, embossing, and spot UV — are showing up across categories that used to stick to flat matte or gloss. The reason is simple: touch is one of the few senses a shipped product can still engage before it's opened.",
+      "Right-sized dielines are having a moment too, partly driven by sustainability goals and partly by shipping cost math. A box built to the product's exact dimensions uses less material and often qualifies for better dimensional-weight shipping rates than an oversized stock box.",
+      "We're also seeing more brands request smaller initial runs — testing a design at a few hundred units before committing to a larger production order. Low minimums used to be the exception; for a lot of our customers now, they're the default way to launch.",
+      "Finally, unprinted paper and material swatch sampling is becoming standard practice for large-format packaging, where a full printed prototype was never practical to begin with. It's a small process change, but it's saving brands real time and money before a production run.",
+    ],
+  },
+  {
+    slug: "sustainable-packaging-materials-explained",
+    title: "FSC, Recycled Content, and Water-Based Inks — What Actually Matters",
+    excerpt:
+      "Sustainability claims on packaging can be confusing. Here's a plain-language breakdown of the material choices that make a real difference.",
+    date: "2026-05-28",
+    category: "Sustainability",
+    author: "Be Happy Packaging Team",
+    body: [
+      "'Eco-friendly packaging' gets used as a catch-all term, which makes it hard to know what you're actually getting. A few specific material choices are worth understanding before your next order.",
+      "FSC certification means the paper fiber in your packaging came from a responsibly managed forest, tracked through a chain-of-custody system. It's one of the few claims backed by third-party auditing rather than self-reporting.",
+      "Recycled content is a separate question from FSC — a paperboard can be recycled-content without being FSC-certified, and vice versa. If both matter to your brand, ask for stock that carries both.",
+      "Soy- and water-based inks reduce the volatile organic compounds released during printing compared to solvent-based alternatives. They don't change what happens to the box after your customer is done with it, but they do reduce the environmental footprint of production itself.",
+      "Curbside recyclability depends on your local municipality as much as the material itself — corrugated and most uncoated paperboard are widely accepted, while laminated or mixed-material packaging often isn't. When in doubt, ask what happens to a specific material in a standard curbside program before making sustainability claims to your customers.",
+    ],
+  },
+  {
+    slug: "unboxing-design-tips",
+    title: "Designing an Unboxing Experience Customers Actually Photograph",
+    excerpt:
+      "A few structural and design choices that separate a forgettable box from one your customers want to share.",
+    date: "2026-04-15",
+    category: "Design",
+    author: "Be Happy Packaging Team",
+    body: [
+      "Most 'unboxing experience' advice focuses on graphics. The structural choices you make before a single color gets printed usually matter more.",
+      "Resistance is part of the experience — a lid that lifts with a little friction, a magnetic closure that clicks shut, a drawer box that slides open smoothly. These moments are what people remember, not just what they see.",
+      "Interior contrast does a lot of work for very little cost. A bright interior print against a neutral exterior, or a printed tissue layer, creates a reveal moment even on a simple folding carton.",
+      "Sequencing matters: what does the customer see first, second, and third as they open the box? Inserts, dividers, and card placement all control that order — treat it as a storyboard, not just protective packaging.",
+      "Finally, build in a reason to keep the box. A reusable structure, a printed thank-you note, or a QR code linking to something useful all give customers a reason to photograph it before it goes in the recycling bin.",
+    ],
+  },
+];
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getRelatedPosts(slug: string, count = 2): BlogPost[] {
+  return blogPosts.filter((post) => post.slug !== slug).slice(0, count);
+}
